@@ -1,0 +1,7 @@
+{
+  "name": "853 Bio-Medical Technology",
+  "description": "Official corporate website for Macau 853 International Bio-Medical Technology Co., Ltd., featuring multilingual support, high-tech industrial design, and detailed company milestones.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
