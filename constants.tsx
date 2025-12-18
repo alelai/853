@@ -31,11 +31,11 @@ export const TRANSLATIONS: TranslationData = {
       paragraph: { 
         en: 'In September 2025, 853 International Bio-Medical Technology Co., Ltd. achieved a historic milestone by securing its official Industrial License from the Economic and Technological Development Bureau (DSEDT) of the Macau SAR Government. This credential formalizes our position as one of Macau\'s elite biomedical entities capable of bridging the gap between innovative laboratory research and large-scale, compliant industrial production. By establishing Macau\'s first specialized high-performance medical plaster production line, we are not only addressing a local market void but also setting the stage for high-end "Macau Made" health products to enter international supply chains.',
         zh_tw: '2025 年 9 月，澳門 853 國際生物醫藥正式榮獲澳門特區政府經濟及科技發展局頒發的工業准照，標誌著公司在合規化與工業化進程中邁出了里程碑式的一步。作為澳門極少數擁有完整自主研發及自動化生產能力的生物醫藥企業，我們專注於高端醫藥貼劑及功能性保健品的深度開發。憑藉澳門首條專業膏貼類自動化生產線，我們成功突破了傳統製藥與現代功能性敷料的技術壁壘，為推動「澳門製造」向高端化、科技化轉型提供了堅實的產業支撐。',
-        zh_cn: '2025 年 9 月，澳门 853 国际生物医药正式荣获澳门特区政府经济及科技发展局颁发的工业准照，标志着公司在合规化与工业化进程中迈出了里程碑式的一步。作为澳门极少数拥有完整自主研发及自动化生产能力的生物医药企业，我们专注于高端医药贴剂及功能性保健品的深度开发。凭借澳门首条专业膏贴类自动化生产线，我们成功突破了传统制药与现代功能性敷料的技术壁垒，为推动「澳门制造」向高端化、科技化转型提供了坚实的产业支撑。'
+        zh_cn: '2025 年 9 月，澳门 853 国际生物医药正式荣获澳门特区政府经济及科技发展局颁发的工业准照，标志着公司在合规化与工业化进程中迈出了里程碑式的一步。作为澳门极少数拥有完整自主研发及自动化生产能力的生物医药企业，我们专注于高端医药贴剂及功能性保健品的深度开发。凭借澳门首条专业膏贴类自动化生产线， we 成功突破了传统制药与现代功能性敷料的技术壁垒，为推动「澳门制造」向高端化、科技化转型提供了坚实的产业支撑。'
       }
     },
     strategy: {
-      headline: { en: 'Strategic Synergy: R&D and Manufacturing Integration', zh_tw: '戰略協同：研發與製造的無縫集成', zh_cn: '战略协同：研发 with 制造的无缝集成' },
+      headline: { en: 'Strategic Synergy: R&D and Manufacturing Integration', zh_tw: '戰略協同：研發與製造的無縫集成', zh_cn: '战略协同：研发与制造的无缝集成' },
       paragraph: {
         en: 'Our operational philosophy is rooted in the "R&D-Manufacturing Integration" strategy. This approach ensures that every scientific discovery made in collaboration with institutions like the University of Macau is meticulously translated into a scalable, high-quality product. With an initial investment exceeding MOP 3 million and a dedicated team of engineers, we prioritize technical precision and hardware excellence. This technical foundation allows us to serve as a world-class CDMO partner, offering customized formulation and production services that meet the most rigorous international standards.',
         zh_tw: '公司的核心發展邏輯建立在「研發製造一體化」之上。自 2024 年 7 月項目啟動以來，我們投入超三百萬澳門元用於基礎設施建設與高端設備引進。通過與澳門大學等權威科研機構的緊密合作，我們構建了一套從前沿分子研發到工業化試產的高效轉化體系。專業的工程師與醫療技術團隊確保了每一道工序都符合國際品質標準，使我們不僅能自主研發核心品牌，更能為全球夥伴提供從配方優化到終端包裝的一站式定制化 OEM/CDMO 服務。',
@@ -69,7 +69,7 @@ export const TRANSLATIONS: TranslationData = {
       paragraph: {
         en: 'Innovation is the DNA of 853. We are currently focusing on the intersection of polymer science and pharmacology to develop the next generation of drug delivery patches. By optimizing the molecular structure of TPU and PP interfaces, we have achieved higher active ingredient permeability without compromising skin safety. This technical leadership is reflected in our specialized production lines that are capable of manufacturing specialized "One-Strap-Muscle" (Yi Tiao Jin) patches tailored for the intense recovery needs of professional and Olympic athletes.',
         zh_tw: '創新是 853 發展的核心動力。我們在高分子材料研發上投入了巨大精力，通過對 PP 與 TPU 等優質材質的物理改性，成功研發出具備極佳生物兼容性的功能性基材。這使得我們的膏貼在保證強效鎮痛與緩解腫痛的同時，能最大限度減少皮膚過敏。我們目前的技術輸出已覆蓋專業運動防護領域，致力於為職業運動員及奧運選手打造兼具療效與極致體驗的「一條筋」高效能貼劑，體現了我們在中西醫結合創新上的領先地位。',
-        zh_cn: '创新是 853 发展的核心动力。我们在高分子材料研发上投入了巨大精力，通过对 PP 与 TPU 等优质材质的物理改性，成功研发出具备极佳生物兼容性的功能性基材. 这使得我们的膏贴在保证强效镇痛与缓解肿痛的同时，能最大限度减少皮肤过敏。我们目前的技术输出已覆盖专业运动防护领域，致力于为职业运动员及奥运选手打造兼具疗效与极致体验的「一条筋」高效能贴剂，体现了我们在中西医结合创新上的领先地位。'
+        zh_cn: '创新是 853 发展的核心动力。我们在高分子材料研发上投入了巨大精力，通过对 PP 与 TPU 等优质材质的物理改性，成功研发 out 具备极佳生物兼容性的功能性基材. 这使得我们的膏贴在保证强效镇痛与缓解肿痛的同时，能最大限度减少皮肤过敏。我们目前的技术输出已覆盖专业运动防护领域，致力于为职业运动员及奥运选手打造兼具疗效与极致体验的「一条筋」高效能贴剂，体现了我们在中西医结合创新上的领先地位。'
       }
     },
     digital: {
@@ -85,44 +85,44 @@ export const TRANSLATIONS: TranslationData = {
       paragraph: {
         en: 'Our vision extends beyond pure manufacturing into strategic cross-industry collaborations. Building on our successful co-branding history with international icons like Godiva, we are looking to integrate Chinese medical wisdom into the global sports care sector. We aim to partner with industry giants like Adidas to deliver specialized medical-grade recovery products. This initiative is part of our broader mission to showcase Macau\'s medical technology on a global stage, proving that professional localized manufacturing can meet and exceed international performance requirements.',
         zh_tw: '我們始終保持開放的全球合作視野。借鑒過去與 Godiva 等國際品牌聯名的成功經驗，我們計劃將中西醫結合的護理理念推向全球體育市場。我們正與國內外知名運動品牌積極商討深度戰略合作，計劃為如 Adidas 等品牌提供專業化的定制護理服務。通過將澳門的創新技術與國際品牌的影響力相結合，我們立志將「853」打造成為具備國際競爭力的生物醫藥名片，服務於更廣泛的全球消費群體。',
-        zh_cn: '我们始终保持开放的全球合作视野. 借鉴过去 with Godiva 等国际品牌联名的成功经验，我们计划将中西医结合的护理理念推向全球体育市场。我们正与国内外知名运动品牌积极商討深度战略合作，计划为如 Adidas 等品牌提供专业化的定制护理服务。通过将澳门的创新技术与国际品牌的影响力相结合，我们立志将「853」打造成为具备国际竞争力的生物医药名片，服务于更广泛的全球消费群体。'
+        zh_cn: '我们始终保持开放的全球合作视野. 借鉴过去 with Godiva 等国际品牌联名的成功经验，我们计划将中西医结合的护理理念推向全球体育市场。我们正与国内外知名运动品牌积极商討深度战略合作，计划为如 Adidas 等品牌提供专业化的定制护理服务。通过将澳门 of 创新技术与国际品牌的影响力相结合，我们立志将「853」打造成为具备国际竞争力的生物医药名片，服务于更广泛的全球消费群体。'
       }
     }
   },
   news: {
-    title: { en: 'Media Center', zh_tw: '新聞中心', zh_cn: '新闻中心' },
+    title: { en: 'News Center', zh_tw: '新聞中心', zh_cn: '新闻中心' },
     featured: {
       date: '2025-10-23',
       headline: { 
-        en: 'Strategic Linkage MOU for Macau-Taiwan Bio-tech Deep Integration', 
+        en: 'Macau-Taiwan Bio-tech Strategic Linkage MOU Signing Ceremony', 
         zh_tw: '澳台雙域企業深度共融戰略聯結備忘協議簽署儀式在澳隆重舉行',
         zh_cn: '澳台双域企业深度共融战略联结备忘协议签署仪式在澳隆重举行'
       },
       subheadline: {
-        en: 'A historic tripartite agreement focusing on resource sharing, joint technical R&D, and global market expansion.',
-        zh_tw: '三方攜手聚焦生物科技領域，以「資源互補、技術共研、市場共拓」為核心，正式開啟澳台兩地跨域產業協同發展的新篇章。',
-        zh_cn: '三方携手聚焦生物科技领域，以「资源互补、技术共研、市场共拓」为核心，正式开启澳台两地跨域产业协同发展的新篇章。'
+        en: 'Tripartite synergy building a "Brand-Raw Material-Production" closed-loop ecosystem.',
+        zh_tw: '三方優勢疊加：構建「品牌-原料-生產」全鏈閉環',
+        zh_cn: '三方优势叠加：构建「品牌-原料-生产」全链闭环'
       },
       content: {
-        en: `Today, 853 International Bio-Medical Technology (Macau), Bowtee International, and Chenhui Bio-tech officially finalized their Strategic Cooperation MOU in Macau. This agreement is a concrete response to the "Greater Bay Area Development Plan" and Macau's strategy for "Moderate Economic Diversification."\n\nBy establishing a closed-loop ecosystem of "Brand-Raw Material-Production," the three parties aim to eliminate historical bottlenecks in regional industrial growth. Bowtee will drive market insights and brand strategy; Chenhui will provide world-class functional raw materials (leveraging their FDA-recognized technologies); and 853 Bio-Medical will handle the complex transition from laboratory formulation to GMP-certified scale manufacturing. This partnership is expected to launch its first joint cardiovascular wellness product in late 2025, setting a new standard for cross-border industrial integration.`,
-        zh_tw: `2025年10月23日，澳門——今日，澳門853國際生物醫藥科技有限公司（以下簡稱「澳門853」）、寶體安國際生物科技澳門有限公司（以下簡稱「寶體安」）與晨暉生物科技股份有限公司（以下簡稱「晨暉生技」）於澳門隆重舉行《澳台雙域企業深度共融戰略聯結備忘協議》簽約儀式。三方攜手聚焦生物科技領域，以「資源互補、技術共研、市場共拓」為核心，正式開啟澳台兩地跨域產業協同發展的新篇章。\n\n此次合作是響應國家「粵港澳大灣區」及澳門「經濟適度多元發展」戰略的重要實踐，更是澳台兩地生物科技企業深化產業鏈融合的創新嘗試。澳門特區政府經濟財政司、澳門貿易投資促進局代表，以及台灣生物科技產業協會嘉賓應邀蒞臨見證，共同見證三方戰略紐帶的正式締結。\n\n作為協議牽頭方，寶體安國際生物科技澳門有限公司是立足澳門、輻射亞太的健康品牌運營商，深耕功能性食品、營養補充劑領域多年。晨暉生技作為台灣領先的生物科技原料供應商，擁有自主知識產權的Vigiis® 101-LAB及ExoBDNF®益生菌、心血管保健紅麴Ankascin® 568-R等核心原料技術庫。澳門853則是澳門本土規模化、智能化生物醫藥委託生產（CDMO）龍頭企業，持有澳門首個GMP級生物製劑生產許可證。\n\n三方簽約後，將圍繞「功能性產品全鏈路開發」展開深度協作。據悉，首個合作項目已鎖定「心血管調節類功能性食品」，預計2025年Q4推向市場。`,
-        zh_cn: `2025年10月23日，澳门——今日，澳门853国际生物医药科技有限公司（以下简称「澳门853」）、宝体安国际生物科技澳门有限公司（以下简称「宝体安」）与晨晖生物科技股份有限公司（以下简称「晨晖生技」）于澳门隆重举行《澳台双域企业深度共融战略联结备忘协议》签约仪式。三方携手聚焦生物科技领域，以「资源互补、技术共研、市场共拓」为核心，正式开启澳台两地跨域产业协同发展的新篇章。\n\n此次合作是响应国家「粤港澳大湾区」及澳门「经济适度多元发展」战略的重要实践，更是澳台两地生物科技企业深化产业链融合的创新尝试。澳门特区政府经济财政司、澳门贸易投资促进局代表，以及台湾生物科技产业协会嘉宾应邀莅临见证，共同见证三方战略纽带的正式缔结。\n\n作为协议牵头方，宝体安国际生物科技澳门有限公司是立足澳门、辐射亚太的健康品牌运营商，深耕功能性食品、营养补充剂领域多年。晨晖生技作为台湾领先的生物科技原料供应商，拥有自主知识产权的Vigiis® 101-LAB及ExoBDNF®益生菌、心血管保健红麹Ankascin® 568-R等核心原料技术库。澳门853则是澳门本土规模化、智能化生物医药委托生产（CDMO）龙头企业，持有澳门首个GMP级生物制剂生产许可证。\n\n三方签约后，将围绕「功能性产品全链路开发」展开深度协作。据悉，首个合作项目已锁定「心血管调节类功能性食品」，预计2025年Q4推向市场。`
+        en: `2025-10-23, Macau — Today, Macau 853 International Bio-Medical Technology (Macau 853), Bowtee International (Bowtee), and Chenhui Bio-tech officially finalized their Strategic Cooperation MOU in Macau.\n\nThis agreement is a concrete response to the "Greater Bay Area Development Plan" and Macau's strategy for "Moderate Economic Diversification."\n\nBowtee will drive market insights and brand strategy; Chenhui will provide world-class functional raw materials; and 853 Bio-Medical will handle the transition to GMP-certified scale manufacturing. This partnership is expected to launch its first joint cardiovascular wellness product in late 2025.`,
+        zh_tw: `2025年10月23日，澳門——今日，澳門853國際生物醫藥科技有限公司（以下簡稱「澳門853」）、寶體安國際生物科技澳門有限公司（以下簡稱「寶體安」）與晨暉生物科技股份有限公司（以下簡稱「晨暉生技物」）於澳門隆重舉行《澳台雙域企業深度共融戰略聯結備忘協議》簽約儀式。三方攜手聚焦生物科技領域，以「資源互補、技術共研、市場共拓」為核心，正式開啟澳台兩地跨域產業協同發展的新篇章。\n\n此次合作是響應國家「粵港澳大灣區」及澳門「經濟適度多元發展」戰略的重要實踐，更是澳台兩地生物科技企業深化產業鏈融合的創新嘗試。澳門特區政府經濟財政司、澳門貿易投資促進局代表，以及台灣生物科技產業協會嘉賓應邀蒞臨見證，共同見證三方戰略紐帶的正式締結。\n\n三方優勢疊加：構建「品牌-原料-生產」全鏈閉環\n\n作為協議牽頭方，寶體安國際生物科技澳門有限公司是立足澳門、輻射亞太的健康品牌運營商，深耕功能性食品、營養補充劑領域多年，憑借澳門「中葡平台」的獨特優勢，已建立覆蓋中國內地、東南亞及葡語系國家的多元化銷售網絡。其核心團隊擁有超20年大健康產業經驗，聚焦「科學養生」「精準營養」賽道，持續推出符合消費升級需求的創新產品。\n\n晨暉生技物科技股份有限公司作為台灣領先的生物科技原料供應商，是亞洲地區功能性原料研發的標杆企業，擁有自主知識產權的Vigiis® 101-LAB及認知功能益生菌ExoBDNF®益生菌及、心血管保健紅麴Ankascin® 568-R、活性肽等核心原料技術庫，產品通過美國FDA NDI、GRAS等認可歐盟EFSA等多項國際認證，長期服務於全球頂尖保健品、化妝品企業，在高附加值原料領域具備強大的技術壁壘與成本優勢。\n\n澳門853國際生物醫藥科技有限公司則是澳門本土規模化、智能化生物醫藥委託生產（CDMO）龍頭企業，持有具備澳門地區生物醫藥生產的合規資質澳門首個GMP級生物製劑生產許可證，配備符合國際cGMP標準的生產車間及質量管控體系，擅長從研發中試到規模化生產的全流程服務，近年來已助力多個跨境醫藥、保健產品實現「澳門製造」標籤的市場落地。\n\n三方簽約後，將圍繞「功能性產品全鏈路開發」展開深度協作：寶體安負責品牌運營與市場洞察，提出消費端需求；晨暉生物定向研發專屬功能原料，提供技術輸出；澳門853則承接原料轉化生產，確保產品品質與供應效率。據悉，首個合作項目已鎖定「心血管調節類功能性食品」，預計2025年Q4推向市場。\n\n跨域共融賦能：打造澳台產業協同示範標杆\n\n「此次合作不僅是企業層面的資源整合，更是澳台兩地生物科技產業鏈的深度綁定。」寶體安國際生物科技總經理葉芳浩在致辭中表示，「澳門的平臺優勢、台灣的技術實力，加上853的生產能力，三方能夠彌補單一市場在研發、轉化、出海環節的短板，共同構建『台灣研發+澳門品牌+本地生產』的新型產業模式，為大灣區生物科技產業升級提供樣板。」\n\n晨暉生物副董事長潘佳岳則強調技術協同的關鍵性：「大健康產品的競爭本質是核心原料的競爭。通過與寶體安的市場需求對接，我們的原料研發將更貼近終端消費痛點；而澳門853的生產線則能快速驗證原料應用效果，縮短產品迭代週期。未來，我們計劃共建『澳台功能性原料聯合實驗室』，聚焦原料定制、天然產物提取等領域，力爭3年內推出5-8項專利原料。」\n\n澳門853國際生物醫藥行政總監黎嘉誠則從產業生態角度闡述合作價值：「澳門正積極推動『醫藥健康』成為經濟多元發展的核心產業之一，此次與台灣龍頭企業及本地品牌方的合作，既能借助台灣的技術資源提升本地CDMO服務能級，也能通過寶體安的海外渠道，助力澳門製造的產品走向國際市場。我們期待以此次協議為起點，吸引更多澳台優質企業加入，共同打造具有國際影響力的生物科技產業集群。」\n\n政策紅利加持：共繪大灣區生物科技新藍圖\n\n業界人士分析，隨著《粵港澳大灣區發展規劃綱要》深入落實，澳門與台灣在生物科技領域的協同發展迎來歷史性機遇——澳門的制度優勢、國際化平台與台灣的研發實力、產業鏈成熟度形成強互補，而澳門853此類本土CDMO企業的崛起，則為跨域合作提供了堅實的「落地橋梁」。\n\n此次戰略協議的簽署，標誌著澳台兩地生物科技企業從「單點合作」邁入「生態共建」新階段。未來，隨著三方在技術研發、供應鏈優化、市場拓展等領域的持續深耕，勢必將為大灣區生物科技產業升級注入新動能，並為澳門經濟適度多元發展提供更具活力的產業支撐。`,
+        zh_cn: `2025年10月23日，澳门——今日，澳门853国际生物医药科技有限公司（以下简称「澳门853」）、宝体安国际生物科技澳门有限公司（以下简称「宝体安」）与晨晖生物科技股份有限公司（以下简称「晨晖生技物」）于澳门隆重举行《澳台双域企业深度共融战略联结备忘协议》签约仪式。三方携手聚焦生物科技领域，以「资源互补、技术共研、市场共拓」为核心，正式开启澳台两地跨域产业协同发展的新篇章。\n\n此次合作是响应国家「粤港澳大湾区」及澳门「经济适度多元发展」战略的重要实践，更是澳台两地生物科技企业深化产业链融合的创新尝试。澳门特区政府经济财政司、澳门贸易投资促进局代表，以及台湾生物科技产业协会嘉宾应邀莅临见证，共同见证三方战略纽带的正式缔结。\n\n三方优势叠加：构建「品牌-原料-生产」全链闭环\n\n作为协议牵头方，宝体安国际生物科技澳门有限公司是立足澳门、辐射亚太的健康品牌运营商，深耕功能性食品、营养补充剂领域多年，凭借澳门「中葡平台」的独特优势，已建立覆盖中国内地、东南亚及葡语系国家的多元化销售网络。其核心团队拥有超20年大健康产业经验，聚焦「科学养生」「精准营养」赛道，持续推出符合消费升级需求的创新产品。\n\n晨晖生技物科技股份有限公司作为台湾领先的生物科技原料供应商，是亚洲地区功能性原料研发的标杆企业，拥有自主知识产权的Vigiis® 101-LAB及认知功能益生菌ExoBDNF®益生菌及、心血管保健红麹Ankascin® 568-R、活性肽等核心原料技术库，产品通过美国FDA NDI、GRAS等认可欧盟EFSA等多项国际认证，长期服务于全球顶尖保健品、化妆品企业，在高附加值原料领域具备强大的技术壁壘与成本优势。\n\n澳门853国际生物医药科技有限公司则是澳门本土规模化、智能化生物医药委托生产（CDMO）龙头企业，持有具备澳门地区生物医药生产的合规资质澳门首个GMP级生物制剂生产许可证，配备符合国际cGMP标准的生产车间及质量管控体系，擅长从研发中试到规模化生产的全流程服务，近年来已助力多个跨境医药、保健产品实现「澳门制造」标签的市场落地。\n\n三方签约后，将围绕「功能性产品全链路开发」展开深度协作：宝体安负责品牌运营与市场洞察，提出消费端需求；晨晖生物定向研发专属功能原料，提供技术输出；澳门853则承接原料转化生产，确保产品品质与供应效率。据悉，首个合作项目已锁定「心血管调节类功能性食品」，预计2025年Q4推向市场。\n\n跨域共融赋能：打造澳台产业协同示范标杆\n\n「此次合作不仅是企业层面的资源整合，更是澳台两地生物科技产业链的深度绑定。」宝体安国际生物科技总经理叶芳浩在致辞中表示，「澳门的平台优势、台湾的技术实力，加上853的生产能力，三方能够弥补单一市场在研发、转化、出海环节的短板，共同构建『台湾研发+澳门品牌+本地生产』的新型产业模式，为大湾区生物科技产业升级提供样板。」\n\n晨晖生物副董事长潘佳岳则强调技术协同的关键性：「大健康产品的竞争本质是核心原料的竞争。通过与宝体安的市场需求对接，我们的原料研发将更贴近终端消费痛点；而澳门853的生产线则能快速验证原料应用效果，缩短产品迭代周期。未来，我们计划共建『澳台功能性原料联合实验室』，聚焦原料定制、天然产物提取等领域，力争3年内推出5-8项专利原料。」\n\n澳门853国际生物医药行政总监黎嘉诚则从产业生态角度阐述合作价值：「澳门正积极推动『医药健康』成为经济多元发展的核心产业之一，此次与台湾龙头企业及本地品牌方的合作，既能借助台湾的技术资源提升本地CDMO服务能级，也能通过宝体安的海外渠道，助力澳门制造的产品走向国际市场。我们期待以此协议为起点，吸引更多澳台优质企业加入，共同打造具有国际影响力的生物科技产业集群。」\n\n政策红利加持：共绘大湾区生物科技新蓝图\n\n业界人士分析，随着《粤港澳大湾区发展规划纲要》深入落实，澳门与台湾在生物科技领域的协同发展迎来历史性机遇——澳门的制度优势、国际化平台与台湾的研发实力、产业链成熟度形成强互补，而澳门853此类本土CDMO企业的崛起，则为跨域合作提供了坚实的「落地桥梁」。\n\n此次战略协议的签署，标志着澳台两地生物科技企业从「单点合作」迈入「生态共建」新阶段。未来，随着三方在技术研发、供应链优化、市场拓展等领域的持续深耕，势必将为大湾区生物科技产业升级注入新动能，并为澳门经济适度多元发展提供更具活力的产业支撑。`
       },
       partners: [
         {
-          name: { en: 'Bowtee International', zh_tw: '寶體安國際生物', zh_cn: '宝体安国际生物' },
+          name: { en: 'Bowtee (Baoti\'an)', zh_tw: '寶體安', zh_cn: '宝体安' },
           role: { en: 'Brand Operator', zh_tw: '亞太健康品牌運營商', zh_cn: '亚太健康品牌运营商' },
-          desc: { en: '20+ years of GBA market insight and global sales logistics.', zh_tw: '深耕功能性食品領域，擁有超20年大健康產業經驗。', zh_cn: '深耕功能性食品领域，拥有超20年大健康产业经验。' }
+          desc: { en: '20+ years of GBA market insight and global sales logistics.', zh_tw: '深耕健康補劑領域二十載，擁有遍佈葡語系國家的完善渠道。', zh_cn: '深耕健康补剂领域二十载，拥有遍布葡语系国家的完善渠道。' }
         },
         {
-          name: { en: 'Chenhui Bio-tech', zh_tw: '晨暉生物科技', zh_cn: '晨晖生物科技' },
-          role: { en: 'Technical Provider', zh_tw: '亞洲功能性原料研發標杆', zh_cn: '亚洲功能性原料研发标杆' },
-          desc: { en: 'NTA/FDA certified biotech innovator from Taiwan.', zh_tw: '擁有自主知識產權的 Vigiis® 與 Ankascin® 核心技術。', zh_cn: '拥有自主知识产权的 Vigiis® 与 Ankascin® 核心技术。' }
+          name: { en: 'Chenhui Bio-tech', zh_tw: '晨暉生物', zh_cn: '晨晖生物' },
+          role: { en: 'Technical Standard', zh_tw: '全球功能性原料研發標杆', zh_cn: '全球功能性原料研发标杆' },
+          desc: { en: 'FDA NDI/GRAS certified probiotic and red yeast tech.', zh_tw: '亞洲頂尖原料商，掌握多項國際專利技術及 FDA 認證。', zh_cn: '亚洲顶尖原料商，掌握多项国际专利技术及 FDA 认证。' }
         },
         {
           name: { en: '853 Bio-Medical', zh_tw: '澳門 853', zh_cn: '澳门 853' },
-          role: { en: 'Manufacturing CDMO', zh_tw: '澳門智能化生產龍頭', zh_cn: '澳门智能化生产龙头' },
-          desc: { en: 'Macau\'s first GMP-certified bio-medical CDMO platform.', zh_tw: '持有合規資質，提供從研發中試到規模化生產全流程服務。', zh_cn: '持有合规资质，提供从研发中试到规模化生产全流程服务。' }
+          role: { en: 'Manufacturing CDMO', zh_tw: '合規化智能化 CDMO 龍頭', zh_cn: '合规化智能化 CDMO 龙头' },
+          desc: { en: 'Holders of the milestone 2025 Macau Industrial License.', zh_tw: '具備 GMP 級生產資質，引領澳門生物醫藥工業化轉型。', zh_cn: '具备 GMP 级生产资质，引领澳门生物医药工业化转型。' }
         }
       ]
     }
@@ -209,7 +209,7 @@ export const TRANSLATIONS: TranslationData = {
     paragraph: {
       en: 'Guangdong Hengqin 853 International Bio-Medical Technology Co., Ltd. serves as our strategic industrial anchor within the Guangdong-Macao In-Depth Cooperation Zone in Hengqin. This base is essential for bridging the "One Country, Two Systems" policy advantages with industrial scalability. By focusing on TCM modernization, advanced medical device R&D, and health food production, our Hengqin facility provides the necessary space and logistical infrastructure to target global markets while maintaining our R&D core in Macau.',
       zh_tw: '廣東橫琴 853 國際生物醫藥科技有限公司是公司在橫琴粵澳深度合作區設立的重要產業基地。依託「一國兩制」下的制度紅利，橫琴基地承載了公司大規模生產與全球物流分發的核心職能。通過構建「澳門研發+橫琴生產+全球市場」的跨境鏈條，我們在此專注於中醫藥現代化、第二類醫療器械研發及保健食品的規模化生產。這不僅擴展了我們的產業空間，更使我們能深入參與粵港澳大健康產業的協同創新，為中醫藥走向世界提供堅實的落地平台。',
-      zh_cn: '广东横琴 853 国际生物医药科技有限公司是公司在横琴粤澳深度合作区设立的重要产业基地。依托「一国两制」下的制度红利，横琴基地承载了公司大规模生产与全球物流分发的核心职能。通过构建「澳门研发+横琴生产+全球市场」的跨境条，我们在此专注于中医药现代化、第二类医疗器械研发及保健食品的规模化生产。这不仅扩展了我们的产业空间，更使我们能深入参与粤港澳大健康产业的协同创新，为中医药走向世界提供坚实的落地平台。'
+      zh_cn: '广东横琴 853 国际生物医药科技有限公司是公司在横琴粤澳深度合作区设立的重要产业基地。依托「一国两制」下的制度红利，横琴基地承载了公司大规模生产与全球物流分发的核心职能. 通过构建「澳门研发+横琴生产+全球市场」的跨境条，我们在此专注于中医药现代化、第二类医疗器械研发及保健食品的规模化生产。这不仅扩展了我们的产业空间，更使我们能深入参与粤港澳大健康产业的协同创新，为中医药走向世界提供坚实的落地平台。'
     },
     sections: [
       {

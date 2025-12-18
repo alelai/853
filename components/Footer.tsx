@@ -26,7 +26,7 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
   return (
     <footer id="contact" className="bg-[#2A2016] text-white pt-16 pb-10 overflow-hidden relative border-t border-white/5">
       {/* Decorative BG element */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C1A376]/5 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C1A376]/5 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -69,16 +69,16 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
             </div>
           ))}
 
-          {/* QR Code & Direct Action Column */}
+          {/* QR Code Column */}
           <div className="col-span-1 flex flex-col items-start lg:items-end">
             <h5 className="text-[10px] font-black mb-6 text-white border-b border-[#C1A376]/30 pb-2 inline-block uppercase tracking-widest">{lang === 'en' ? 'Scan to Connect' : '掃碼諮詢'}</h5>
             <div className="p-1 bg-white rounded-xl shadow-lg inline-block">
                 <img 
-                  src="https://raw.githubusercontent.com/StackBlitz/stackblitz-images/main/853-wechat-qr.png" 
+                  src="image.png" 
                   alt="WeChat QR Code" 
-                  className="w-20 h-20 block"
+                  className="w-24 h-auto block"
                   onError={(e) => {
-                    e.currentTarget.src = "https://placehold.co/100x100?text=853+WeChat";
+                    e.currentTarget.src = "https://placehold.co/150x200?text=853+WeChat";
                   }}
                 />
             </div>
