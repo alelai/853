@@ -10,8 +10,8 @@ export const TRANSLATIONS: TranslationData = {
   hero: {
     title: {
       en: '853 Bio-Medical: Pioneering the Future of High-End Medical Manufacturing',
-      zh_tw: '澳門 853 國際生物醫藥：開啟澳門高端醫療製造新紀元',
-      zh_cn: '澳门 853 国际生物医药：开启澳门高端医疗制造新纪元',
+      zh_tw: '澳門 853 國際生物醫藥科技有限公司：開啟澳門高端醫療製造新紀元',
+      zh_cn: '澳门 853 国际生物医药科技有限公司：开启澳门高端医疗制造新纪元',
     },
     subtitle: {
       en: 'Integrating advanced R&D with precision manufacturing to establish a new benchmark for biomedical excellence in Macau and the Greater Bay Area.',
@@ -30,8 +30,8 @@ export const TRANSLATIONS: TranslationData = {
       headline: { en: '2025: A Landmark Year for Industrial Recognition', zh_tw: '2025：工業製造實力的里程碑', zh_cn: '2025：工业制造实力的里程碑' },
       paragraph: { 
         en: 'In September 2025, 853 International Bio-Medical Technology Co., Ltd. achieved a historic milestone by securing its official Industrial License from the Economic and Technological Development Bureau (DSEDT) of the Macau SAR Government. This credential formalizes our position as one of Macau\'s elite biomedical entities capable of bridging the gap between innovative laboratory research and large-scale, compliant industrial production. By establishing Macau\'s first specialized high-performance medical plaster production line, we are not only addressing a local market void but also setting the stage for high-end "Macau Made" health products to enter international supply chains.',
-        zh_tw: '2025 年 9 月，澳門 853 國際生物醫藥正式榮獲澳門特區政府經濟及科技發展局頒發的工業准照，標誌著公司在合規化與工業化進程中邁出了里程碑式的一步。作為澳門極少數擁有完整自主研發及自動化生產能力的生物醫藥企業，我們專注於高端醫藥貼劑及功能性保健品的深度開發。憑藉澳門首條專業膏貼類自動化生產線，我們成功突破了傳統製藥與現代功能性敷料的技術壁壘，為推動「澳門製造」向高端化、科技化轉型提供了堅實的產業支撐。',
-        zh_cn: '2025 年 9 月，澳门 853 国际生物医药正式荣获澳门特区政府经济及科技发展局颁发的工业准照，标志着公司在合规化与工业化进程中迈出了里程碑式的一步。作为澳门极少数拥有完整自主研发及自动化生产能力的生物医药企业，我们专注于高端医药贴剂及功能性保健品的深度开发。凭借澳门首条专业膏贴类自动化生产线， we 成功突破了传统制药与现代功能性敷料的技术壁垒，为推动「澳门制造」向高端化、科技化转型提供了坚实的产业支撑。'
+        zh_tw: '2025 年 9 月，澳門 853 國際生物醫藥科技有限公司 正式榮獲澳門特區政府經濟及科技發展局頒發的工業准照，標誌著公司在合規化與工業化進程中邁出了里程碑式的一步。作為澳門極少數擁有完整自主研發及自動化生產能力的生物醫藥企業，我們專注於高端醫藥貼劑及功能性保健品的深度開發。憑藉澳門首條專業膏貼類自動化生產線，我們成功突破了傳統製藥與現代功能性敷料的技術壁壘，為推動「澳門製造」向高端化、科技化轉型提供了堅實的產業支撐。',
+        zh_cn: '2025 年 9 月，澳门 853 国际生物医药正式荣获澳门特区政府经济及科技发展局颁发的工业准照，标志着公司在合规化与工业化进程中迈出了里程碑式的一步。作为澳门极少数拥有完整自主研发及自动化生产能力的生物医药企业，我们专注于高端医药贴剂及功能性保健品的深度开发。凭借澳门首条专业膏贴类自动化生产线，我们成功突破了传统制药与现代功能性敷料的技术壁垒，为推动「澳门制造」向高端化、科技化转型提供了坚实的产业支撑。'
       }
     },
     strategy: {
@@ -69,7 +69,7 @@ export const TRANSLATIONS: TranslationData = {
       paragraph: {
         en: 'Innovation is the DNA of 853. We are currently focusing on the intersection of polymer science and pharmacology to develop the next generation of drug delivery patches. By optimizing the molecular structure of TPU and PP interfaces, we have achieved higher active ingredient permeability without compromising skin safety. This technical leadership is reflected in our specialized production lines that are capable of manufacturing specialized "One-Strap-Muscle" (Yi Tiao Jin) patches tailored for the intense recovery needs of professional and Olympic athletes.',
         zh_tw: '創新是 853 發展的核心動力。我們在高分子材料研發上投入了巨大精力，通過對 PP 與 TPU 等優質材質的物理改性，成功研發出具備極佳生物兼容性的功能性基材。這使得我們的膏貼在保證強效鎮痛與緩解腫痛的同時，能最大限度減少皮膚過敏。我們目前的技術輸出已覆蓋專業運動防護領域，致力於為職業運動員及奧運選手打造兼具療效與極致體驗的「一條筋」高效能貼劑，體現了我們在中西醫結合創新上的領先地位。',
-        zh_cn: '创新是 853 发展的核心动力。我们在高分子材料研发上投入了巨大精力，通过对 PP 与 TPU 等优质材质的物理改性，成功研发 out 具备极佳生物兼容性的功能性基材. 这使得我们的膏贴在保证强效镇痛与缓解肿痛的同时，能最大限度减少皮肤过敏。我们目前的技术输出已覆盖专业运动防护领域，致力于为职业运动员及奥运选手打造兼具疗效与极致体验的「一条筋」高效能贴剂，体现了我们在中西医结合创新上的领先地位。'
+        zh_cn: '创新是 853 发展的核心动力。我们在高分子材料研发上投入了巨大精力，通过对 PP 与 TPU 等优质材质的物理改性，成功研发出具备极佳生物兼容性的功能性基材. 这使得我们的膏贴在保证强效镇痛与缓解肿痛的同时，能最大限度减少皮肤过敏。我们目前的技术输出已覆盖专业运动防护领域，致力于为职业运动员及奥运选手打造兼具疗效与极致体验的「一条筋」高效能贴剂，体现了我们在中西医结合创新上的领先地位。'
       }
     },
     digital: {
@@ -243,10 +243,10 @@ export const TRANSLATIONS: TranslationData = {
       },
       {
         title: { en: 'Lifestyle Advocacy', zh_tw: '轉型健康生活倡導者', zh_cn: '转型健康生活倡导者' },
-        desc: { en: 'Transitioning from a product supplier to a leading advocate for precision-based well-being.', zh_tw: '從單純的醫療產品供應商演進為健康生活方式的倡導者，通過科技賦能提升大眾生活品質。', zh_cn: '从单纯的医疗 product 供应商演进为健康生活方式的倡导者，通过科技赋能提升大众生活品质。' }
+        desc: { en: 'Transitioning from a product supplier to a leading advocate for precision-based well-being.', zh_tw: '從單純的醫療產品供應商演進為健康生活方式的倡導者，通過科技賦能提升大眾生活品質。', zh_cn: '从单纯的医疗产品供应商演进为健康生活方式的倡导者，通过科技赋能提升大众生活品质。' }
       },
       {
-        title: { en: 'Community Health', zh_tw: '提升區域居民健康水平', zh_cn: '提升区域居民 health 水平' },
+        title: { en: 'Community Health', zh_tw: '提升區域居民健康水平', zh_cn: '提升区域居民健康水平' },
         desc: { en: 'Utilizing our technological expertise to address the evolving health needs of our local community.', zh_tw: '依託專業的醫療研發與藥事服務，持續為提升澳門及大灣區居民的健康福祉貢獻專業力量。', zh_cn: '依托专业的医疗研发与药事服务，持续为提升澳门及大湾区居民的健康福祉贡献专业力量。' }
       }
     ]
