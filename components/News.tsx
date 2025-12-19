@@ -2,6 +2,8 @@
 import React from 'react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../constants';
+import signingImg from '../asserts/Image_20251218155359_80_22.jpg';
+import presentationImg from '../asserts/Image_20251218155312_78_22.jpg';
 
 interface NewsProps {
   lang: Language;
@@ -57,7 +59,7 @@ const News: React.FC<NewsProps> = ({ lang }) => {
             <div className="mb-12">
               <div className="rounded-[2rem] overflow-hidden shadow-xl border border-slate-100 bg-slate-50">
                 <img 
-                  src="Image_20251218155359_80_22.png" 
+                  src={signingImg} 
                   alt="澳台雙域企業深度共融戰略聯結備忘協議簽署儀式" 
                   className="w-full h-auto object-cover"
                   onError={(e) => { e.currentTarget.src = "https://picsum.photos/seed/signing/1200/800"; }}
@@ -77,7 +79,7 @@ const News: React.FC<NewsProps> = ({ lang }) => {
             <div className="my-12">
               <div className="rounded-[2rem] overflow-hidden shadow-xl border border-slate-100 bg-slate-50">
                 <img 
-                  src="Image_20251218155312_78_22.png" 
+                  src={presentationImg} 
                   alt="New Product Presentation" 
                   className="w-full h-auto object-cover"
                   onError={(e) => { e.currentTarget.src = "https://picsum.photos/seed/presentation/1200/800"; }}

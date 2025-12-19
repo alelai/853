@@ -3,6 +3,7 @@ import React from 'react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../constants';
 import Logo from './Logo';
+import wechatImg from '../asserts/Image.png';
 
 interface FooterProps {
   lang: Language;
@@ -74,7 +75,7 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
             <h5 className="text-[10px] font-black mb-6 text-white border-b border-[#C1A376]/30 pb-2 inline-block uppercase tracking-widest">{lang === 'en' ? 'Scan to Connect' : '掃碼諮詢'}</h5>
             <div className="p-1 bg-white rounded-xl shadow-lg inline-block">
                 <img 
-                  src="image.png" 
+                  src={wechatImg} 
                   alt="WeChat QR Code" 
                   className="w-24 h-auto block"
                   onError={(e) => {
