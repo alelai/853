@@ -60,7 +60,7 @@ const News: React.FC<NewsProps> = ({ lang }) => {
                   src="Image_20251218155359_80_22.png" 
                   alt="澳台雙域企業深度共融戰略聯結備忘協議簽署儀式" 
                   className="w-full h-auto object-cover"
-                  onError={(e) => { e.currentTarget.src = "https://picsum.photos/seed/signing853/1200/800"; }}
+                  onError={(e) => { e.currentTarget.src = "https://picsum.photos/seed/signing/1200/800"; }}
                 />
               </div>
               <div className="p-4 bg-slate-50 text-[10px] text-slate-500 text-center uppercase tracking-widest font-bold mt-2">
@@ -80,7 +80,7 @@ const News: React.FC<NewsProps> = ({ lang }) => {
                   src="Image_20251218155312_78_22.png" 
                   alt="New Product Presentation" 
                   className="w-full h-auto object-cover"
-                  onError={(e) => { e.currentTarget.src = "https://picsum.photos/seed/presentation853/1200/800"; }}
+                  onError={(e) => { e.currentTarget.src = "https://picsum.photos/seed/presentation/1200/800"; }}
                 />
               </div>
               <div className="p-4 bg-slate-50 text-[10px] text-slate-500 text-center uppercase tracking-widest font-bold mt-2">
