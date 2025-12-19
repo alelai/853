@@ -84,7 +84,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentLang, onLangChange, onNavigate, 
         >
           <Logo className="w-12 h-12 transition-transform group-hover:scale-105" light={true} />
           <span className="font-bold text-lg hidden md:block text-white group-hover:text-[#C1A376] transition-colors">
-            {currentLang === 'en' ? '853 Bio-Medical' : '853 國際生物醫藥'}
+            {currentLang === 'en' ? '853 Bio-Medical' : '853 國際生物醫藥科技有限公司 '}
           </span>
         </button>
 
