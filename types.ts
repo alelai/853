@@ -35,6 +35,36 @@ export interface TranslationData {
       paragraph: Record<Language, string>;
     };
   };
+  certification: {
+    title: Record<Language, string>;
+    badge: Record<Language, string>;
+    subtitle: Record<Language, string>;
+    paragraph: Record<Language, string>;
+    classificationTitle: Record<Language, string>;
+    classificationNote: Record<Language, string>;
+    classes: Array<{
+      level: Record<Language, string>;
+      risk: Record<Language, string>;
+      path: Record<Language, string>;
+      desc: Record<Language, string>;
+    }>;
+    platformTitle: Record<Language, string>;
+    platformSubtitle: Record<Language, string>;
+    features: Array<{
+      icon: string;
+      label: Record<Language, string>;
+    }>;
+    modesTitle: Record<Language, string>;
+    modes: Array<{
+      name: Record<Language, string>;
+    }>;
+    statsTitle: Record<Language, string>;
+    stats: Array<{
+      value: string;
+      label: Record<Language, string>;
+    }>;
+    disclaimer: Record<Language, string>;
+  };
   innovation: {
     title: Record<Language, string>;
     materials: {
