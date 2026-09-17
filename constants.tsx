@@ -5,7 +5,6 @@ export const TRANSLATIONS: TranslationData = {
   nav: [
     { id: 'home', label: { en: 'Home', zh_tw: '首頁', zh_cn: '首页' } },
     { id: 'news', label: { en: 'News', zh_tw: '新聞中心', zh_cn: '新闻中心' } },
-    { id: 'certification', label: { en: 'Certification', zh_tw: '醫療器械認證', zh_cn: '医疗器械认证' } },
     { id: 'contact', label: { en: 'Contact', zh_tw: '聯絡我們', zh_cn: '联系我们' } },
   ],
   hero: {
@@ -61,91 +60,6 @@ export const TRANSLATIONS: TranslationData = {
         zh_tw: '依託強大的工業製造基礎，我們為全澳 367 家藥房提供深度的定制化 OEM 服務，助力鳳凰堂、紅寶堂等本土藥號實現品牌升級。我們的技術優勢在於能夠將傳統醫藥智慧與現代材料科學無縫對接。例如，我們研發的高分子功能性貼布融合了先進的 PP 與 TPU 材質，顯著提升了產品的使用體驗。我們還創新地推出了多款植物精油香型膏貼，將療效與愉悅的官能體驗相結合，成功打造了具備國際競爭力的「853」自主膏貼品牌。',
         zh_cn: '依托强大的工业制造基础，我们为全澳 367 家药房提供深度的定制化 OEM 服务，助力凤凰堂、红宝堂等本土药号实现品牌升级。我们的技术优势在于能够将传统医药智慧与现代材料科学无缝对接。例如，我们研发的高分子功能性贴布融合了先进的 PP 与 TPU 材质，显著提升了产品的使用体验. 我们还创新地推出了多款植物精油香型膏贴，将疗效与愉悦的官能体验相结合，成功打造了具备国际竞争力的「853」自主膏贴品牌。'
       }
-    }
-  },
-  certification: {
-    title: { en: 'Medical Device Certification', zh_tw: '醫療器械認證', zh_cn: '医疗器械认证' },
-    badge: { en: '853 Self-Developed AI Compliance Platform', zh_tw: '濠概853自研 AI 醫療器械合規平台', zh_cn: '濠概853自研 AI 医疗器械合规平台' },
-    subtitle: {
-      en: 'An AI-enabled SaaS platform for Macau medical device registration, filing and market access',
-      zh_tw: '面向澳門醫療器械註冊、備案及市場准入的 AI 賦能 SaaS 系統',
-      zh_cn: '面向澳门医疗器械注册、备案及市场准入的 AI 赋能 SaaS 系统'
-    },
-    paragraph: {
-      en: 'Hou Pou 853 has independently developed an AI-enabled SaaS platform for Macau medical device regulation and market access, helping global medical device manufacturers, technology companies, university research teams, healthcare institutions and digital health projects systematically manage the product data, regulatory requirements, technical documentation and application workflows required to enter the Macau market. Compliance is anchored on Law No. 12/2025 "Medical Device Supervision and Administration System" and the classification, registration, filing, clinical evaluation, labelling and post-market surveillance requirements published by the Macau Medication Regulatory Authority (ISAF).',
-      zh_tw: '濠概853自主研發面向澳門醫療器械監管及市場准入場景的 AI 賦能 SaaS 系統，協助全球醫療器械製造商、科技企業、大學科研團隊、醫療機構及數字醫療項目，有系統地管理進入澳門市場所須的產品資料、法規要求、技術文件及申請流程。平台以第12/2025號法律《醫療器械監督管理制度》及澳門藥物監督管理局公布的分類、註冊、備案、臨床評價、標籤及說明書、製造質量管理和上市後監測要求為主要合規基礎。',
-      zh_cn: '濠概853自主研发面向澳门医疗器械监管及市场准入场景的 AI 赋能 SaaS 系统，协助全球医疗器械制造商、科技企业、大学科研团队、医疗机构及数字医疗项目，有系统地管理进入澳门市场所需的产品资料、法规要求、技术文件及申请流程。平台以第12/2025号法律《医疗器械监督管理制度》及澳门药物监督管理局公布的分类、注册、备案、临床评价、标签及说明书、制造质量管理和上市后监测要求为主要合规基础。'
-    },
-    classificationTitle: { en: 'Risk Classification & Regulatory Pathway', zh_tw: '風險分類與監管路徑', zh_cn: '风险分类与监管路径' },
-    classificationNote: {
-      en: 'Initial classification assessment and pathway planning under the Macau medical device classification rules.',
-      zh_tw: '按照澳門醫療器械分類目錄及分類規則，提供產品分類初步評估及註冊／備案路徑規劃。',
-      zh_cn: '按照澳门医疗器械分类目录及分类规则，提供产品分类初步评估及注册／备案路径规划。'
-    },
-    classes: [
-      {
-        level: { en: 'Class I', zh_tw: '第 I 類', zh_cn: '第 I 类' },
-        risk: { en: 'Low Risk', zh_tw: '低風險', zh_cn: '低风险' },
-        path: { en: 'Filing', zh_tw: '備案', zh_cn: '备案' },
-        desc: { en: 'Filing support for low-risk devices', zh_tw: '低風險醫療器械備案支援', zh_cn: '低风险医疗器械备案支持' }
-      },
-      {
-        level: { en: 'Class IIa', zh_tw: '第 IIa 類', zh_cn: '第 IIa 类' },
-        risk: { en: 'Low-to-Moderate Risk', zh_tw: '中低風險', zh_cn: '中低风险' },
-        path: { en: 'Filing', zh_tw: '備案', zh_cn: '备案' },
-        desc: { en: 'Filing support with technical documentation', zh_tw: '備案支援及技術文件準備', zh_cn: '备案支持及技术文件准备' }
-      },
-      {
-        level: { en: 'Class IIb', zh_tw: '第 IIb 類', zh_cn: '第 IIb 类' },
-        risk: { en: 'Moderate-to-High Risk', zh_tw: '中高風險', zh_cn: '中高风险' },
-        path: { en: 'Registration', zh_tw: '註冊', zh_cn: '注册' },
-        desc: { en: 'Registration support with clinical evaluation', zh_tw: '註冊支援及臨床評價準備', zh_cn: '注册支持及临床评价准备' }
-      },
-      {
-        level: { en: 'Class III', zh_tw: '第 III 類', zh_cn: '第 III 类' },
-        risk: { en: 'High Risk', zh_tw: '高風險', zh_cn: '高风险' },
-        path: { en: 'Registration', zh_tw: '註冊', zh_cn: '注册' },
-        desc: { en: 'Full registration and approval coordination', zh_tw: '全面註冊及審批協調', zh_cn: '全面注册及审批协调' }
-      }
-    ],
-    platformTitle: { en: 'AI Platform Capabilities', zh_tw: 'AI 平台核心功能', zh_cn: 'AI 平台核心功能' },
-    platformSubtitle: {
-      en: 'From product profiling to post-market compliance — one integrated workflow.',
-      zh_tw: '由產品建檔至上市後管理，一站式合規工作流程。',
-      zh_cn: '由产品建档至上市后管理，一站式合规工作流程。'
-    },
-    features: [
-      { icon: 'fa-solid fa-tags', label: { en: 'Classification & regulatory analysis', zh_tw: '產品分類及監管屬性初步分析', zh_cn: '产品分类及监管属性初步分析' } },
-      { icon: 'fa-solid fa-route', label: { en: 'Registration, filing & market access pathways', zh_tw: '註冊、備案及市場准入路徑建議', zh_cn: '注册、备案及市场准入路径建议' } },
-      { icon: 'fa-solid fa-file-shield', label: { en: 'AI-assisted technical documentation & consistency checks', zh_tw: 'AI 輔助技術文件整理及完整性檢查', zh_cn: 'AI 辅助技术文件整理及完整性检查' } },
-      { icon: 'fa-solid fa-heart-pulse', label: { en: 'Clinical evaluation, risk management & test data', zh_tw: '臨床評價、風險管理及檢驗資料管理', zh_cn: '临床评价、风险管理及检验资料管理' } },
-      { icon: 'fa-solid fa-rectangle-list', label: { en: 'Labelling & instructions-for-use review', zh_tw: '標籤及使用說明書資料檢查', zh_cn: '标签及使用说明书资料检查' } },
-      { icon: 'fa-solid fa-globe', label: { en: 'Overseas registration & sales evidence management', zh_tw: '境外註冊及銷售證明資料管理', zh_cn: '境外注册及销售证明资料管理' } },
-      { icon: 'fa-solid fa-code-branch', label: { en: 'Software & AI algorithm version records', zh_tw: '軟件及 AI 算法版本記錄', zh_cn: '软件及 AI 算法版本记录' } },
-      { icon: 'fa-solid fa-bell', label: { en: 'Renewal, changes & compliance reminders', zh_tw: '產品變更、註冊續期及合規提醒', zh_cn: '产品变更、注册续期及合规提醒' } },
-      { icon: 'fa-solid fa-triangle-exclamation', label: { en: 'Post-market adverse event management', zh_tw: '上市後不良事件資料管理', zh_cn: '上市后不良事件资料管理' } },
-      { icon: 'fa-solid fa-handshake', label: { en: '"Hong Kong–Macau Medicine & Device Link" policy support', zh_tw: '「港澳藥械通」政策及項目支援', zh_cn: '「港澳药械通」政策及项目支持' } }
-    ],
-    modesTitle: { en: 'Flexible Cooperation Models', zh_tw: '靈活合作模式', zh_cn: '灵活合作模式' },
-    modes: [
-      { name: { en: 'AI-Enabled SaaS Platform', zh_tw: '自研 AI 賦能 SaaS 系統', zh_cn: '自研 AI 赋能 SaaS 系统' } },
-      { name: { en: 'Registration & Compliance Services', zh_tw: '醫療器械註冊及合規服務', zh_cn: '医疗器械注册及合规服务' } },
-      { name: { en: 'AI-CRO Professional Services', zh_tw: 'AI-CRO 專業服務', zh_cn: 'AI-CRO 专业服务' } },
-      { name: { en: 'Joint Development & Research Transfer', zh_tw: '聯合開發及科研成果轉化', zh_cn: '联合开发及科研成果转化' } },
-      { name: { en: 'On-Premise Deployment', zh_tw: '私有化部署', zh_cn: '私有化部署' } },
-      { name: { en: 'Market Access & Partnership Matching', zh_tw: '澳門市場准入及合作對接', zh_cn: '澳门市场准入及合作对接' } }
-    ],
-    statsTitle: { en: 'Validated in the Market', zh_tw: '已完成的初步商業驗證', zh_cn: '已完成的初步商业验证' },
-    stats: [
-      { value: '300+', label: { en: 'Users engaged in platform validation', zh_tw: '名用戶參與平台驗證', zh_cn: '名用户参与平台验证' } },
-      { value: '3', label: { en: 'Integrated platforms officially launched', zh_tw: '大平台集成正式上線', zh_cn: '大平台集成正式上线' } },
-      { value: '10,000+', label: { en: 'Cumulative page views', zh_tw: '次頁面瀏覽', zh_cn: '次页面浏览' } },
-      { value: '5', label: { en: 'Client projects completed and validated', zh_tw: '個客戶項目完成驗證', zh_cn: '个客户项目完成验证' } }
-    ],
-    disclaimer: {
-      en: 'The 853 self-developed platform is an independent commercial compliance management and technical support system, and is not the official e-service platform of the Macau Medication Regulatory Authority (ISAF). Final classification, registration, filing, licensing and approval outcomes are subject to the formal requirements and decisions of ISAF.',
-      zh_tw: '濠概853自研平台屬於獨立的商業合規管理及技術支援系統，並非澳門藥物監督管理局的官方電子服務平台。醫療器械的最終分類、註冊、備案、准照及審批結果，均以澳門藥物監督管理局的正式要求及決定為準。',
-      zh_cn: '濠概853自研平台属于独立的商业合规管理及技术支持系统，并非澳门药物监督管理局的官方电子服务平台。医疗器械的最终分类、注册、备案、准照及审批结果，均以澳门药物监督管理局的正式要求及决定为准。'
     }
   },
   innovation: {

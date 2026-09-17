@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Facilities from './components/Facilities';
-import Certification from './components/Certification';
 import Products from './components/Products';
 import Hengqin from './components/Hengqin';
 import News from './components/News';
@@ -45,7 +44,6 @@ const App: React.FC = () => {
           <Hero lang={currentLang} />
           <About lang={currentLang} />
           <Facilities lang={currentLang} />
-          <Certification lang={currentLang} />
           <Hengqin lang={currentLang} />
           <Products lang={currentLang} />
         </>
