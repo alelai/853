@@ -70,7 +70,7 @@ HEX6_RE = re.compile(r"#[0-9a-fA-F]{6}\b")
 HEX3_RE = re.compile(r"#(?:[0-9a-fA-F]{3})(?![0-9a-fA-F])")
 TW_RE = re.compile(
     r"\b(teal|cyan|sky|blue|indigo|emerald|slate|gray|grey|zinc|neutral|stone|"
-    r"red|orange|amber|yellow|rose|pink|green|lime|violet|purple|fuchsia)-(\d{2})\b"
+    r"red|orange|amber|yellow|rose|pink|green|lime|violet|purple|fuchsia)-(\d{2,3})\b"
 )
 WHITE_RE = re.compile(r"\b(?:bg|text|border)-white\b|\bwhite/\[")
 
@@ -191,20 +191,30 @@ def collect_tokens(text: str):
         fam, shade = m.group(1), m.group(2)
         if fam == "grey":
             fam = "gray"
-        if fam in TW_CLINICAL or fam in TW_NEUTRAL:
-            # representative HSL per family (documented approximation)
+        if fam == "grey":
+            fam_hue, s = 210.0, 0.08
+            chroma = 0.06
+        elif fam in TW_NEUTRAL:
+            fam_hue, s = 210.0, 0.08
+            chroma = 0.06
+        elif fam in TW_CLINICAL:
             fam_hue = {"teal": 175, "cyan": 187, "sky": 199, "blue": 217,
-                       "indigo": 239, "emerald": 160}.get(fam, 210 if fam in TW_NEUTRAL else 210)
-            if fam in TW_NEUTRAL:
-                fam_hue = 210
-                s = 0.08
-            else:
-                s = 0.65
-            l = {"50": 0.97, "100": 0.94, "200": 0.90, "300": 0.83,
-                 "400": 0.68, "500": 0.55, "600": 0.46, "700": 0.37,
-                 "800": 0.29, "900": 0.21, "950": 0.14}.get(shade, 0.5)
-            chroma = 0.06 if fam in TW_NEUTRAL else TW_CHROMA.get(shade, 0.50)
-            tokens.append(("tw", fam_hue, s, l, None, chroma))
+                       "indigo": 239, "emerald": 160}[fam]
+            s = 0.65
+            chroma = TW_CHROMA.get(shade, 0.50)
+        else:
+            # off-family utilities: representative hues outside the clinical
+            # range (documented approximation) so they correctly penalize
+            # palette_alignment
+            fam_hue = {"red": 4, "orange": 27, "amber": 46, "yellow": 55,
+                       "lime": 74, "green": 145, "rose": 351, "pink": 330,
+                       "violet": 265, "purple": 291, "fuchsia": 297}[fam]
+            s = 0.70
+            chroma = TW_CHROMA.get(shade, 0.50)
+        l = {"50": 0.97, "100": 0.94, "200": 0.90, "300": 0.83,
+             "400": 0.68, "500": 0.55, "600": 0.46, "700": 0.37,
+             "800": 0.29, "900": 0.21, "950": 0.14}.get(shade, 0.5)
+        tokens.append(("tw", fam_hue, s, l, None, chroma))
     for _ in WHITE_RE.finditer(text):
         tokens.append(("tw", 210.0, 0.0, 1.0, None, 0.0))
     return tokens
