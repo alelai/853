@@ -224,25 +224,48 @@ def collect_tokens(text: str):
 
 
 def reference_palette(ref_dir: Path):
-    """Deterministic palette clusters from reference JPEGs (PIL MEDIANCUT)."""
+    """Deterministic palette clusters from the reference corpus.
+
+    Two sources, merged:
+    - ref_dir images (client visual brand ground truth): PIL MEDIANCUT
+      clusters >= 3% pixel weight each.
+    - ref_dir-real/*.json (declared DOM colors harvested from live
+      medical/pharma sites, committed as fixtures): colors with >= 5%
+      of each site's total element-count weight.
+    """
     clusters = []
     try:
         from PIL import Image
     except ImportError:
-        print("WARN: PIL unavailable; reference_affinity=0", file=sys.stderr)
-        return clusters
-    files = sorted(p for p in ref_dir.iterdir()
-                   if p.suffix.lower() in (".jpg", ".jpeg", ".png"))
-    for path in files:
-        im = Image.open(path).convert("RGB")
-        w, h = im.size
-        small = im.resize((200, max(1, int(200 * h / w))))
-        q = small.quantize(colors=12, method=Image.MEDIANCUT).convert("RGB")
-        total = small.size[0] * small.size[1]
-        counts = sorted(q.getcolors(total) or [], reverse=True)
-        for cnt, rgb in counts:
-            if cnt / total >= 0.03:  # keep clusters >= 3% weight
-                clusters.append(rgb)
+        print("WARN: PIL unavailable; image clusters skipped", file=sys.stderr)
+        Image = None
+    if Image is not None:
+        files = sorted(p for p in ref_dir.iterdir()
+                       if p.suffix.lower() in (".jpg", ".jpeg", ".png"))
+        for path in files:
+            im = Image.open(path).convert("RGB")
+            w, h = im.size
+            small = im.resize((200, max(1, int(200 * h / w))))
+            q = small.quantize(colors=12, method=Image.MEDIANCUT).convert("RGB")
+            total = small.size[0] * small.size[1]
+            counts = sorted(q.getcolors(total) or [], reverse=True)
+            for cnt, rgb in counts:
+                if cnt / total >= 0.03:  # keep clusters >= 3% weight
+                    clusters.append(rgb)
+    # declared-color corpus from real medical/pharma sites
+    real_dir = ref_dir.parent / "ref-real"
+    if real_dir.is_dir():
+        for jpath in sorted(real_dir.glob("*.json")):
+            try:
+                data = json.loads(jpath.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                continue
+            total = sum(data.values()) or 1
+            for hexkey, cnt in data.items():
+                if cnt / total >= 0.05:  # colors >= 5% element weight
+                    rgb = (int(hexkey[0:2], 16), int(hexkey[2:4], 16),
+                           int(hexkey[4:6], 16))
+                    clusters.append(rgb)
     return clusters
 
 
