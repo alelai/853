@@ -31,6 +31,7 @@ import math
 import json
 import re
 import sys
+from html.parser import HTMLParser
 from pathlib import Path
 
 CLINICAL_HUE_LO = 160.0   # teal/cyan/blue/indigo hue family
@@ -269,6 +270,159 @@ def reference_palette(ref_dir: Path):
     return clusters
 
 
+# ---------------------------------------------------------------- contrast
+# WCAG 2.1 AA contrast, measured on declared Tailwind classes via a light
+# ancestor-tracking parser (deterministic static analysis; no DOM).
+# Rationale: healthcare sites serve elderly/low-vision audiences;
+# readability is a documented medical-web convention (sambasci.com,
+# 3mediaweb.com). Large text (>=24px, or >=18.66px bold) needs 3:1,
+# normal text 4.5:1.
+
+TW_TOKEN_HEX = {
+    "slate-50": "F8FAFC", "slate-100": "F1F5F9", "slate-200": "E2E8F0",
+    "slate-300": "CBD5E1", "slate-400": "94A3B8", "slate-500": "64748B",
+    "slate-600": "475569", "slate-700": "334155", "slate-800": "1E293B",
+    "slate-900": "0F172A", "blue-50": "EFF6FF", "blue-100": "DBEAFE",
+    "blue-200": "BFDBFE", "blue-300": "93C5FD", "blue-400": "60A5FA",
+    "blue-500": "3B82F6", "blue-600": "2563EB", "blue-700": "1D4ED8",
+    "blue-800": "1E40AF", "blue-900": "1E3A8A", "cyan-50": "ECFEFF",
+    "cyan-100": "CFFAFE", "cyan-200": "A5F3FC", "cyan-300": "67E8F9",
+    "cyan-400": "22D3EE", "cyan-500": "06B6D4", "cyan-600": "0891B2",
+    "cyan-700": "0E7490", "cyan-800": "155E75", "cyan-900": "164E63",
+    "white": "FFFFFF", "black": "000000",
+}
+TW_SIZE_PX = {"xs": 12, "sm": 14, "base": 16, "lg": 18, "xl": 20, "2xl": 24}
+VOID_TAGS = {"br", "img", "hr", "input", "meta", "link", "source", "path",
+             "circle", "line", "polyline", "rect"}
+
+
+def _hex_tuple(h):
+    return (int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16))
+
+
+def _blend(fg, bg, a):
+    """fg over bg with alpha a."""
+    return tuple(round(f * a + b * (1 - a)) for f, b in zip(fg, bg))
+
+
+def _rel_lum(rgb):
+    def ch(c):
+        c = c / 255.0
+        return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+    r, g, b = (ch(c) for c in rgb)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def _contrast_ratio(fg, bg):
+    l1, l2 = _rel_lum(fg), _rel_lum(bg)
+    hi, lo = max(l1, l2), min(l1, l2)
+    return (hi + 0.05) / (lo + 0.05)
+
+
+class _ContrastParser(HTMLParser):
+    """Tracks (text color, background, size, bold) for text nodes."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.stack = [ {"fg": "000000", "bg": "FFFFFF",
+                        "size": 16.0, "bold": False} ]
+        self.svg_depth = 0
+        self.samples = []   # (ratio, required, text, fg, bg)
+
+    def _own_bg(self, classes):
+        hex_bg = re.search(r"bg-\[#?([0-9a-fA-F]{6})\]", classes)
+        if hex_bg:
+            return hex_bg.group(1).upper()
+        grad = (re.search(r"from-\[#?([0-9a-fA-F]{6})\]", classes),
+                re.search(r"to-\[#?([0-9a-fA-F]{6})\]", classes))
+        if "bg-gradient" in classes and grad[0] and grad[1]:
+            a, b = _hex_tuple(grad[0].group(1)), _hex_tuple(grad[1].group(1))
+            return "".join(f"{(x + y) // 2:02X}" for x, y in zip(a, b))
+        if "bg-gradient" in classes and grad[0]:
+            return grad[0].group(1).upper()
+        for tok in classes.split():
+            key = tok[3:] if tok.startswith("bg-") else ""
+            if key in TW_TOKEN_HEX:
+                return TW_TOKEN_HEX[key]
+        alpha = re.search(r"bg-white/\[(0?\.\d+)\]", classes)
+        if alpha:
+            parent = self.stack[-1]["bg"]
+            return "".join(f"{c:02X}" for c in
+                           _blend((255, 255, 255), _hex_tuple(parent),
+                                  float(alpha.group(1))))
+        return None
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "svg":
+            self.svg_depth += 1
+        if tag in VOID_TAGS or tag == "svg":
+            return
+        classes = dict(attrs).get("class", "") or ""
+        parent = self.stack[-1]
+        bg = self._own_bg(classes) or parent["bg"]
+        fg = parent["fg"]
+        fg_alpha = 1.0
+        size = parent["size"]
+        bold = parent["bold"]
+        for tok in classes.split():
+            key = tok[5:] if tok.startswith("text-") else ""
+            if key in TW_TOKEN_HEX:
+                fg = TW_TOKEN_HEX[key]
+                fg_alpha = 1.0
+            elif re.fullmatch(r"\[#([0-9a-fA-F]{6})\]", key or ""):
+                m6 = re.fullmatch(r"\[#([0-9a-fA-F]{6})\]", key)
+                fg = m6.group(1).upper()
+                fg_alpha = 1.0
+            elif key in TW_SIZE_PX:
+                size = float(TW_SIZE_PX[key])
+            elif re.fullmatch(r"\[\d+px\]", key or ""):
+                size = float(key[1:-3])
+            elif tok.startswith("text-") and "/" in tok:
+                base, _, a = tok[5:].partition("/")
+                if base in TW_TOKEN_HEX and re.fullmatch(r"\d+", a or ""):
+                    fg = TW_TOKEN_HEX[base]
+                    fg_alpha = int(a) / 100.0
+        if "font-bold" in classes or "font-black" in classes \
+                or "font-extrabold" in classes:
+            bold = True
+        if "font-light" in classes:
+            bold = False
+        self.stack.append({"fg": fg, "bg": bg, "size": size,
+                           "bold": bold, "fg_alpha": fg_alpha})
+
+    def handle_endtag(self, tag):
+        if tag == "svg" and self.svg_depth:
+            self.svg_depth -= 1
+            return
+        if tag in VOID_TAGS or tag == "svg":
+            return
+        if len(self.stack) > 1:
+            self.stack.pop()
+
+    def handle_data(self, data):
+        if self.svg_depth or not data.strip():
+            return
+        ctx = self.stack[-1]
+        fg = _blend(_hex_tuple(ctx["fg"]), _hex_tuple(ctx["bg"]),
+                    ctx.get("fg_alpha", 1.0))
+        ratio = _contrast_ratio(fg, _hex_tuple(ctx["bg"]))
+        required = 3.0 if (ctx["size"] >= 24 or
+                           (ctx["size"] >= 18.66 and ctx["bold"])) else 4.5
+        self.samples.append((ratio, required, data.strip()[:24],
+                             ctx["fg"], ctx["bg"]))
+
+
+def contrast_readability(html_text: str):
+    """Return (score 0-1, failing samples)."""
+    p = _ContrastParser()
+    p.feed(html_text)
+    p.close()
+    if not p.samples:
+        return 1.0, []
+    failing = [s for s in p.samples if s[0] < s[1]]
+    return 1 - len(failing) / len(p.samples), failing
+
+
 # ---------------------------------------------------------------- scoring
 
 
@@ -279,7 +433,7 @@ def score(text: str, ref_dir: Path) -> dict:
         return {k: 0.0 for k in (
             "palette_alignment", "lightness_airiness",
             "saturation_restraint", "motif_density", "reference_affinity",
-            "typography_signal", "medical_feel_score")}
+            "typography_signal", "contrast_readability", "medical_feel_score")}
 
     saturated = [t for t in tokens if t[2] >= SATURATED_MIN]
 
@@ -333,13 +487,21 @@ def score(text: str, ref_dir: Path) -> dict:
     leading_score = min(1.0, text.count("leading-relaxed") / LEADING_TARGET)
     metrics["typography_signal"] = (eyebrow_score + ramp_score + leading_score) / 3.0
 
+    # 7. contrast readability: WCAG 2.1 AA on declared text/bg pairs
+    cr_score, cr_failures = contrast_readability(text)
+    metrics["contrast_readability"] = cr_score
+    for ratio, req, snippet, fg, bg in sorted(cr_failures)[:8]:
+        print(f"WARN contrast {ratio:.2f}<{req} fg=#{fg} bg=#{bg} '{snippet}'",
+              file=sys.stderr)
+
     weights = {
-        "palette_alignment": 0.28,
-        "typography_signal": 0.12,
-        "lightness_airiness": 0.12,
-        "saturation_restraint": 0.12,
-        "motif_density": 0.18,
-        "reference_affinity": 0.18,
+        "palette_alignment": 0.25,
+        "typography_signal": 0.10,
+        "lightness_airiness": 0.11,
+        "saturation_restraint": 0.11,
+        "motif_density": 0.16,
+        "reference_affinity": 0.16,
+        "contrast_readability": 0.11,
     }
     composite = sum(metrics[k] * w for k, w in weights.items())
     metrics["medical_feel_score"] = composite * 100.0
@@ -362,7 +524,7 @@ def main() -> int:
     print(f"METRIC medical_feel_score={metrics['medical_feel_score']:.2f}")
     for k in ("palette_alignment", "lightness_airiness",
               "saturation_restraint", "motif_density", "reference_affinity",
-              "typography_signal"):
+              "typography_signal", "contrast_readability"):
         print(f"METRIC {k}={metrics[k]:.4f}")
     print(json.dumps(metrics, indent=2), file=sys.stderr)
     return 0
