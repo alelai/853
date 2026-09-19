@@ -10,130 +10,178 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
   body { font-family: 'Inter', 'PingFang TC', 'Microsoft JhengHei', sans-serif; }
+  section[id], header[id] { scroll-margin-top: 4.5rem; }
   ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: #f1f1f1; }
-  ::-webkit-scrollbar-thumb { background: #C1A376; border-radius: 10px; }
-  section[id], header[id] { scroll-margin-top: 5rem; }
+  ::-webkit-scrollbar-track { background: #EAF5FC; }
+  ::-webkit-scrollbar-thumb { background: #37A7BB; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #035DA8; }
+  .bg-plus-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 13v10M13 18h10' stroke='%23035DA8' stroke-opacity='0.07' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  }
+  .bg-dots-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1.4' fill='%2337A7BB' fill-opacity='0.12'/%3E%3C/svg%3E");
+  }
 </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-white text-slate-800">
 
 <!-- ======== NAV ======== -->
-<nav class="fixed w-full z-50 bg-[#2A2016] shadow-md py-3">
-  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between gap-4">
+<nav class="fixed w-full z-50 bg-white/95 backdrop-blur border-b border-[#D8ECF7] shadow-sm">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between gap-4 h-16">
     <a href="#top" class="flex items-center gap-3 shrink-0">
-      <svg viewBox="0 0 100 120" class="w-9 h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 10 H90 V80 C90 95 50 110 50 110 C50 110 10 95 10 80 V10Z" stroke="#C1A376" stroke-width="2"/>
-        <path d="M15 15 H85 V78 C85 90 50 103 50 103 C50 103 15 90 15 78 V15Z" stroke="#C1A376" stroke-width="1"/>
-        <text x="50" y="38" fill="#C1A376" font-size="18" font-weight="bold" text-anchor="middle">853</text>
-        <line x1="50" y1="55" x2="50" y2="95" stroke="#C1A376" stroke-width="2"/>
-        <circle cx="50" cy="53" r="3" fill="#C1A376"/>
-      </svg>
-      <span class="font-bold text-sm md:text-base text-white hidden sm:block">濠概853 <span class="text-[#C1A376]">AI醫療器械合規平台</span></span>
+      <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#035DA8] to-[#37A7BB] text-white flex items-center justify-center shadow-md shadow-[#37A7BB]/30">
+        <i class="fa-solid fa-heart-pulse"></i>
+      </span>
+      <span class="leading-tight">
+        <span class="block font-black text-[15px] text-[#0B4A7F]">濠概853 <span class="text-[#1A8FBF]">AI合規平台</span></span>
+        <span class="block text-[10px] text-slate-400 font-medium tracking-wide">醫療器械註冊 · 備案 · 市場准入</span>
+      </span>
     </a>
-    <div class="hidden lg:flex items-center gap-5 text-[13px] font-medium text-white/80">
-      <a href="#about" class="hover:text-[#C1A376]">平台簡介</a>
-      <a href="#models" class="hover:text-[#C1A376]">合作模式</a>
-      <a href="#saas" class="hover:text-[#C1A376]">SaaS平台</a>
-      <a href="#services" class="hover:text-[#C1A376]">專業服務</a>
-      <a href="#aicro" class="hover:text-[#C1A376]">AI-CRO</a>
-      <a href="#joint" class="hover:text-[#C1A376]">聯合開發</a>
-      <a href="#deploy" class="hover:text-[#C1A376]">私有化部署</a>
-      <a href="#coverage" class="hover:text-[#C1A376]">服務覆蓋</a>
-      <a href="#validation" class="hover:text-[#C1A376]">商業驗證</a>
-      <a href="./index.html" class="px-3 py-1 rounded-full bg-[#C1A376] text-[#2A2016] font-bold hover:opacity-90">853 官網</a>
+    <div class="hidden lg:flex items-center gap-5 text-[13px] font-semibold text-slate-600">
+      <a href="#about" class="hover:text-[#035DA8]">平台簡介</a>
+      <a href="#models" class="hover:text-[#035DA8]">合作模式</a>
+      <a href="#saas" class="hover:text-[#035DA8]">SaaS平台</a>
+      <a href="#services" class="hover:text-[#035DA8]">專業服務</a>
+      <a href="#aicro" class="hover:text-[#035DA8]">AI-CRO</a>
+      <a href="#joint" class="hover:text-[#035DA8]">聯合開發</a>
+      <a href="#deploy" class="hover:text-[#035DA8]">私有化部署</a>
+      <a href="#coverage" class="hover:text-[#035DA8]">服務覆蓋</a>
+      <a href="#validation" class="hover:text-[#035DA8]">商業驗證</a>
+      <a href="./index.html" class="px-4 py-2 rounded-full bg-[#035DA8] text-white font-bold hover:bg-[#0B4A7F] shadow-md shadow-[#035DA8]/25 transition-all">853 官網</a>
     </div>
-    <a href="./index.html" class="lg:hidden px-3 py-1.5 rounded-full bg-[#C1A376] text-[#2A2016] text-xs font-bold">853 官網</a>
+    <a href="./index.html" class="lg:hidden px-3 py-1.5 rounded-full bg-[#035DA8] text-white text-xs font-bold">853 官網</a>
   </div>
 </nav>
 
 <!-- ======== HERO ======== -->
-<header id="top" class="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#2A2016] text-white overflow-hidden">
-  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C1A376]/5 rounded-full -translate-y-1/3 translate-x-1/3 blur-[100px] pointer-events-none"></div>
+<header id="top" class="relative pt-32 pb-20 md:pt-44 md:pb-28 bg-gradient-to-b from-[#E3F3FC] via-[#F2FAFE] to-white overflow-hidden">
+  <div class="absolute inset-0 bg-plus-pattern pointer-events-none"></div>
+  <!-- decorative medical blobs -->
+  <div class="absolute -top-24 -right-24 w-[420px] h-[420px] bg-[#37A7BB]/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 -left-24 w-[360px] h-[360px] bg-[#035DA8]/10 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- ECG line -->
+  <svg class="absolute left-0 right-0 bottom-6 w-full h-16 opacity-30 pointer-events-none" viewBox="0 0 1440 64" fill="none" preserveAspectRatio="none">
+    <polyline points="0,32 220,32 250,32 262,10 274,54 286,32 460,32 520,32 532,18 544,46 556,32 760,32 820,32 832,12 844,52 856,32 1060,32 1140,32 1152,20 1164,44 1176,32 1440,32" stroke="#37A7BB" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  </svg>
+
   <div class="max-w-6xl mx-auto px-6 relative z-10">
-    <div class="inline-block px-4 py-1 mb-6 rounded-full bg-[#C1A376]/20 border border-[#C1A376]/40 text-[#C1A376] text-xs font-bold tracking-widest">
-      濠概853 自主研發 · AI賦能 SaaS 系統
-    </div>
-    <h1 class="text-3xl md:text-5xl font-black leading-tight mb-5 tracking-tight">濠概853自研<br class="md:hidden">AI醫療器械合規平台</h1>
-    <p class="text-lg md:text-xl text-[#C1A376] font-bold mb-8 border-l-4 border-[#C1A376] pl-5 leading-snug">
-      面向澳門醫療器械註冊、備案及市場准入的<br class="hidden md:block">AI賦能SaaS系統
-    </p>
-    <div class="max-w-3xl space-y-4 text-sm md:text-base text-slate-300 font-light leading-relaxed">
-      <p>濠概853自主研發面向澳門醫療器械監管及市場准入場景的AI賦能SaaS系統，協助全球各地的醫療器械製造商、科技企業、大學科研團隊、醫療機構及數字醫療項目，有系統地管理進入澳門市場所需要的產品資料、法規要求、技術文件及申請流程。</p>
-      <p>平台以第12/2025號法律《醫療器械監督管理制度》及澳門藥物監督管理局公布的醫療器械分類、註冊、備案、臨床評價、標籤及說明書、製造質量管理和上市後監測要求為主要合規基礎，將澳門醫療器械法規要求轉化為可執行的資料清單、文件任務、審核節點及項目流程。</p>
-      <p>透過AI輔助分析、專業人員覆核及澳門本地項目協調，濠概853協助客戶由產品分類、監管路徑分析及技術文件準備，逐步推進至澳門醫療器械註冊或備案、申請協調、市場准入及上市後合規管理。</p>
-    </div>
-    <div class="mt-10 max-w-3xl p-5 rounded-2xl bg-white/5 border border-[#C1A376]/30 text-xs md:text-sm text-slate-300 leading-relaxed">
-      <i class="fa-solid fa-circle-info text-[#C1A376] mr-2"></i>濠概853自研平台屬於獨立的商業合規管理及技術支援系統，並非澳門藥物監督管理局的官方電子服務平台。醫療器械的最終分類、註冊、備案、准照及審批結果，均以澳門藥物監督管理局的正式要求及決定為準。
+    <div class="grid lg:grid-cols-5 gap-12 items-center">
+      <div class="lg:col-span-3">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-white border border-[#BFE3F4] text-[#0B6FA8] text-xs font-bold shadow-sm">
+          <i class="fa-solid fa-shield-heart text-[#37A7BB]"></i>
+          澳門第12/2025號法律《醫療器械監督管理制度》合規基礎
+        </div>
+        <h1 class="text-3xl md:text-5xl font-black leading-tight mb-4 tracking-tight text-[#0B4A7F]">
+          濠概853自研<br class="md:hidden"><span class="text-[#1A8FBF]">AI醫療器械合規平台</span>
+        </h1>
+        <p class="text-base md:text-lg text-[#0E7490] font-bold mb-8 leading-snug">
+          面向澳門醫療器械註冊、備案及市場准入的AI賦能SaaS系統
+        </p>
+        <div class="space-y-4 text-sm md:text-[15px] text-slate-600 leading-relaxed max-w-3xl">
+          <p>濠概853自主研發面向澳門醫療器械監管及市場准入場景的AI賦能SaaS系統，協助全球各地的醫療器械製造商、科技企業、大學科研團隊、醫療機構及數字醫療項目，有系統地管理進入澳門市場所需要的產品資料、法規要求、技術文件及申請流程。</p>
+          <p>平台以澳門藥物監督管理局公布的醫療器械分類、註冊、備案、臨床評價、標籤及說明書、製造質量管理和上市後監測要求為主要合規基礎，將澳門醫療器械法規要求轉化為可執行的資料清單、文件任務、審核節點及項目流程。</p>
+          <p>透過AI輔助分析、專業人員覆核及澳門本地項目協調，濠概853協助客戶由產品分類、監管路徑分析及技術文件準備，逐步推進至澳門醫療器械註冊或備案、申請協調、市場准入及上市後合規管理。</p>
+        </div>
+        <div class="flex flex-wrap gap-3 mt-8">
+          <a href="#saas" class="px-6 py-3 rounded-full bg-[#035DA8] text-white text-sm font-bold shadow-lg shadow-[#035DA8]/30 hover:bg-[#0B4A7F] transition-all"><i class="fa-solid fa-laptop-medical mr-2"></i>了解SaaS平台</a>
+          <a href="#models" class="px-6 py-3 rounded-full bg-white border border-[#BFE3F4] text-[#0B4A7F] text-sm font-bold hover:bg-[#E3F3FC] transition-all"><i class="fa-solid fa-handshake mr-2 text-[#37A7BB]"></i>合作模式</a>
+        </div>
+      </div>
+
+      <!-- side medical panel -->
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-3xl border border-[#D8ECF7] shadow-xl shadow-[#035DA8]/10 p-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#E3F3FC] to-transparent rounded-bl-[3rem] pointer-events-none"></div>
+          <h3 class="text-sm font-black text-[#0B4A7F] uppercase tracking-widest mb-6 flex items-center gap-2"><i class="fa-solid fa-clipboard-check text-[#37A7BB]"></i>合規速覽</h3>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-[#F2FAFE] border border-[#E3F3FC]">
+              <span class="w-11 h-11 shrink-0 rounded-xl bg-[#035DA8]/10 text-[#035DA8] flex items-center justify-center text-lg"><i class="fa-solid fa-file-medical"></i></span>
+              <div><p class="text-xs text-slate-400 font-bold uppercase tracking-wider">第 I / IIa 類</p><p class="text-sm font-black text-[#0B4A7F]">備案路徑支援</p></div>
+            </div>
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-[#F2FAFE] border border-[#E3F3FC]">
+              <span class="w-11 h-11 shrink-0 rounded-xl bg-[#37A7BB]/10 text-[#1A8FBF] flex items-center justify-center text-lg"><i class="fa-solid fa-folder-check"></i></span>
+              <div><p class="text-xs text-slate-400 font-bold uppercase tracking-wider">第 IIb / III 類</p><p class="text-sm font-black text-[#0B4A7F]">註冊路徑支援</p></div>
+            </div>
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-[#F2FAFE] border border-[#E3F3FC]">
+              <span class="w-11 h-11 shrink-0 rounded-xl bg-[#0E7490]/10 text-[#0E7490] flex items-center justify-center text-lg"><i class="fa-solid fa-microchip"></i></span>
+              <div><p class="text-xs text-slate-400 font-bold uppercase tracking-wider">AI + 專業覆核</p><p class="text-sm font-black text-[#0B4A7F]">技術文件 · 臨床評價 · 上市後管理</p></div>
+            </div>
+          </div>
+          <div class="mt-6 pt-5 border-t border-[#E3F3FC] text-[11px] leading-relaxed text-slate-500">
+            <i class="fa-solid fa-circle-info text-[#37A7BB] mr-1"></i>濠概853自研平台屬於獨立的商業合規管理及技術支援系統，並非澳門藥物監督管理局的官方電子服務平台。醫療器械的最終分類、註冊、備案、准照及審批結果，均以澳門藥物監督管理局的正式要求及決定為準。
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
 <!-- ======== ABOUT / 與我們合作 ======== -->
-<section id="about" class="py-20 bg-white">
+<section id="about" class="py-20 bg-white bg-dots-pattern">
   <div class="max-w-6xl mx-auto px-6">
     <div class="max-w-3xl mb-12">
-      <div class="text-[#C1A376] font-black text-[10px] uppercase tracking-[0.3em] mb-3">Cooperation</div>
-      <h2 class="text-2xl md:text-4xl font-black text-[#2A2016] mb-4">與我們合作</h2>
-      <p class="text-lg text-[#C1A376] font-bold mb-6">靈活合作模式，連接全球技術、澳門合規與市場應用</p>
-      <div class="w-16 h-1 bg-[#C1A376] rounded-full mb-8"></div>
-      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed font-light">
+      <div class="text-[#1A8FBF] font-black text-[11px] uppercase tracking-[0.3em] mb-3 flex items-center gap-2"><span class="w-8 h-[2px] bg-[#37A7BB] rounded-full inline-block"></span>Cooperation</div>
+      <h2 class="text-2xl md:text-4xl font-black text-[#0B4A7F] mb-4">與我們合作</h2>
+      <p class="text-lg text-[#0E7490] font-bold mb-6">靈活合作模式，連接全球技術、澳門合規與市場應用</p>
+      <div class="w-16 h-1 bg-gradient-to-r from-[#035DA8] to-[#37A7BB] rounded-full mb-8"></div>
+      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed">
         <p>濠概853能為全球各地的醫療器械製造商、科技企業、大學科研團隊、醫療機構及數字醫療項目提供多種合作模式，協助不同國家和地區的醫療器械及創新醫療技術進入澳門市場。</p>
         <p>我們以澳門第12/2025號法律《醫療器械監督管理制度》、澳門藥物監督管理局公布的技術要求，以及澳門醫療器械分類、註冊、備案和市場准入程序為服務基礎，為客戶建立由產品評估、文件準備、申請協調至上市後管理的本地合規路徑。</p>
         <p>對於符合相關條件並有意透過「港澳藥械通」政策在大灣區拓展應用的產品，濠概853亦可協助進行前期政策資訊整理、產品條件分析、澳門市場准入規劃及合作資源對接。具體產品是否適用「港澳藥械通」及其實際使用安排，須按照相關政策、指定醫療機構及主管部門的要求確定。</p>
       </div>
     </div>
     <div id="models" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex items-center gap-4 hover:shadow-md transition-all"><div class="w-11 h-11 shrink-0 bg-white rounded-xl flex items-center justify-center text-[#C1A376] shadow-sm"><i class="fa-solid fa-cloud"></i></div><p class="text-sm font-bold text-slate-800">濠概853自研AI賦能SaaS系統</p></div>
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex items-center gap-4 hover:shadow-md transition-all"><div class="w-11 h-11 shrink-0 bg-white rounded-xl flex items-center justify-center text-[#C1A376] shadow-sm"><i class="fa-solid fa-file-signature"></i></div><p class="text-sm font-bold text-slate-800">澳門醫療器械註冊及合規服務</p></div>
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex items-center gap-4 hover:shadow-md transition-all"><div class="w-11 h-11 shrink-0 bg-white rounded-xl flex items-center justify-center text-[#C1A376] shadow-sm"><i class="fa-solid fa-microscope"></i></div><p class="text-sm font-bold text-slate-800">AI-CRO專業服務</p></div>
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex items-center gap-4 hover:shadow-md transition-all"><div class="w-11 h-11 shrink-0 bg-white rounded-xl flex items-center justify-center text-[#C1A376] shadow-sm"><i class="fa-solid fa-handshake"></i></div><p class="text-sm font-bold text-slate-800">聯合開發及科研成果轉化</p></div>
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex items-center gap-4 hover:shadow-md transition-all"><div class="w-11 h-11 shrink-0 bg-white rounded-xl flex items-center justify-center text-[#C1A376] shadow-sm"><i class="fa-solid fa-server"></i></div><p class="text-sm font-bold text-slate-800">私有化部署</p></div>
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex items-center gap-4 hover:shadow-md transition-all"><div class="w-11 h-11 shrink-0 bg-white rounded-xl flex items-center justify-center text-[#C1A376] shadow-sm"><i class="fa-solid fa-store"></i></div><p class="text-sm font-bold text-slate-800">澳門市場准入及合作對接</p></div>
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex items-center gap-4 hover:shadow-md transition-all sm:col-span-2 lg:col-span-1"><div class="w-11 h-11 shrink-0 bg-white rounded-xl flex items-center justify-center text-[#C1A376] shadow-sm"><i class="fa-solid fa-link"></i></div><p class="text-sm font-bold text-slate-800">「港澳藥械通」前期政策及項目支援</p></div>
+      <div class="p-6 bg-white border border-[#D8ECF7] rounded-2xl flex items-center gap-4 hover:shadow-lg hover:shadow-[#035DA8]/10 hover:-translate-y-0.5 transition-all"><div class="w-12 h-12 shrink-0 bg-gradient-to-br from-[#035DA8] to-[#1A8FBF] text-white rounded-xl flex items-center justify-center shadow-md"><i class="fa-solid fa-cloud"></i></div><p class="text-sm font-bold text-[#0B4A7F]">濠概853自研AI賦能SaaS系統</p></div>
+      <div class="p-6 bg-white border border-[#D8ECF7] rounded-2xl flex items-center gap-4 hover:shadow-lg hover:shadow-[#035DA8]/10 hover:-translate-y-0.5 transition-all"><div class="w-12 h-12 shrink-0 bg-gradient-to-br from-[#035DA8] to-[#1A8FBF] text-white rounded-xl flex items-center justify-center shadow-md"><i class="fa-solid fa-file-signature"></i></div><p class="text-sm font-bold text-[#0B4A7F]">澳門醫療器械註冊及合規服務</p></div>
+      <div class="p-6 bg-white border border-[#D8ECF7] rounded-2xl flex items-center gap-4 hover:shadow-lg hover:shadow-[#035DA8]/10 hover:-translate-y-0.5 transition-all"><div class="w-12 h-12 shrink-0 bg-gradient-to-br from-[#035DA8] to-[#1A8FBF] text-white rounded-xl flex items-center justify-center shadow-md"><i class="fa-solid fa-microscope"></i></div><p class="text-sm font-bold text-[#0B4A7F]">AI-CRO專業服務</p></div>
+      <div class="p-6 bg-white border border-[#D8ECF7] rounded-2xl flex items-center gap-4 hover:shadow-lg hover:shadow-[#035DA8]/10 hover:-translate-y-0.5 transition-all"><div class="w-12 h-12 shrink-0 bg-gradient-to-br from-[#37A7BB] to-[#6FCDD8] text-white rounded-xl flex items-center justify-center shadow-md"><i class="fa-solid fa-handshake"></i></div><p class="text-sm font-bold text-[#0B4A7F]">聯合開發及科研成果轉化</p></div>
+      <div class="p-6 bg-white border border-[#D8ECF7] rounded-2xl flex items-center gap-4 hover:shadow-lg hover:shadow-[#035DA8]/10 hover:-translate-y-0.5 transition-all"><div class="w-12 h-12 shrink-0 bg-gradient-to-br from-[#37A7BB] to-[#6FCDD8] text-white rounded-xl flex items-center justify-center shadow-md"><i class="fa-solid fa-server"></i></div><p class="text-sm font-bold text-[#0B4A7F]">私有化部署</p></div>
+      <div class="p-6 bg-white border border-[#D8ECF7] rounded-2xl flex items-center gap-4 hover:shadow-lg hover:shadow-[#035DA8]/10 hover:-translate-y-0.5 transition-all"><div class="w-12 h-12 shrink-0 bg-gradient-to-br from-[#37A7BB] to-[#6FCDD8] text-white rounded-xl flex items-center justify-center shadow-md"><i class="fa-solid fa-hospital"></i></div><p class="text-sm font-bold text-[#0B4A7F]">澳門市場准入及合作對接</p></div>
+      <div class="p-6 bg-white border border-[#D8ECF7] rounded-2xl flex items-center gap-4 hover:shadow-lg hover:shadow-[#035DA8]/10 hover:-translate-y-0.5 transition-all sm:col-span-2 lg:col-span-1"><div class="w-12 h-12 shrink-0 bg-gradient-to-br from-[#11596B] to-[#37A7BB] text-white rounded-xl flex items-center justify-center shadow-md"><i class="fa-solid fa-link"></i></div><p class="text-sm font-bold text-[#0B4A7F]">「港澳藥械通」前期政策及項目支援</p></div>
     </div>
   </div>
 </section>
 
 <!-- ======== SAAS PLATFORM ======== -->
-<section id="saas" class="py-20 bg-slate-50">
-  <div class="max-w-6xl mx-auto px-6">
+<section id="saas" class="py-20 bg-[#F2FAFE] relative overflow-hidden">
+  <div class="absolute inset-0 bg-plus-pattern pointer-events-none"></div>
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
     <div class="max-w-3xl mb-12">
-      <div class="text-[#C1A376] font-black text-[10px] uppercase tracking-[0.3em] mb-3">AI + Compliance</div>
-      <h2 class="text-2xl md:text-4xl font-black text-[#2A2016] mb-4">SaaS醫療器械註冊及合規平台</h2>
-      <p class="text-lg text-[#C1A376] font-bold mb-6">濠概853自主研發的澳門醫療器械AI合規系統</p>
-      <div class="w-16 h-1 bg-[#C1A376] rounded-full mb-8"></div>
-      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed font-light">
+      <div class="text-[#1A8FBF] font-black text-[11px] uppercase tracking-[0.3em] mb-3 flex items-center gap-2"><span class="w-8 h-[2px] bg-[#37A7BB] rounded-full inline-block"></span>AI + Compliance</div>
+      <h2 class="text-2xl md:text-4xl font-black text-[#0B4A7F] mb-4">SaaS醫療器械註冊及合規平台</h2>
+      <p class="text-lg text-[#0E7490] font-bold mb-6">濠概853自主研發的澳門醫療器械AI合規系統</p>
+      <div class="w-16 h-1 bg-gradient-to-r from-[#035DA8] to-[#37A7BB] rounded-full mb-8"></div>
+      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed">
         <p>濠概853透過自主研發的AI賦能SaaS系統，協助企業集中管理進入澳門市場所需要的產品資料、澳門法規要求、技術文件、申請任務、軟件版本、算法變更及合規記錄。</p>
         <p>平台以澳門藥物監督管理局公布的醫療器械服務手續、申請指引及技術性要求為主要參考，圍繞第12/2025號法律《醫療器械監督管理制度》所建立的分類、註冊、備案、製造、經營及上市後監管框架，協助客戶建立適合澳門醫療器械申請的項目資料庫及工作流程。</p>
         <p>平台運用AI技術輔助進行產品資料整理、文件清單生成、澳門法規要求匹配、文件完整性檢查、內容一致性分析及申請進度管理，減少重複性工作，提升澳門醫療器械註冊、備案及內部協作效率。</p>
       </div>
     </div>
-    <h3 class="text-lg md:text-xl font-black text-[#2A2016] mb-6">平台功能可包括</h3>
+    <h3 class="text-lg md:text-xl font-black text-[#0B4A7F] mb-6 flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-[#035DA8]/10 text-[#035DA8] flex items-center justify-center text-sm"><i class="fa-solid fa-list-check"></i></span>平台功能可包括</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-folder-plus text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">澳門醫療器械產品資料建檔</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-stethoscope text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">產品預期用途及監管屬性初步分析</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-layer-group text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">第I類、第IIa類、第IIb類及第III類產品分類初步評估</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-route text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">澳門註冊、備案及市場准入路徑建議</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-building-columns text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">澳門藥物監督管理局申請要求匹配</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-list-check text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">註冊或備案文件清單生成</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-wand-magic-sparkles text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">AI輔助技術文件整理及內容提取</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-clipboard-check text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">文件完整性及一致性檢查</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-heart-pulse text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">臨床評價、風險管理及檢驗資料管理</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-tags text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">標籤及使用說明書資料檢查</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-globe text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">境外註冊及銷售證明資料管理</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-diagram-project text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">任務分配與澳門申請進度管理</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-code-branch text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">軟件及AI算法版本記錄</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-bell text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">產品變更、註冊續期及合規提醒</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-triangle-exclamation text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">醫療器械上市後不良事件資料管理</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-book text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">澳門醫療器械法規及技術要求知識庫</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start hover:shadow-sm transition-all"><i class="fa-solid fa-link text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">「港澳藥械通」相關政策資料及項目記錄管理</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#E3F3FC] text-[#035DA8] flex items-center justify-center text-xs"><i class="fa-solid fa-folder-plus"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">澳門醫療器械產品資料建檔</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#E3F3FC] text-[#035DA8] flex items-center justify-center text-xs"><i class="fa-solid fa-stethoscope"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">產品預期用途及監管屬性初步分析</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#E3F3FC] text-[#035DA8] flex items-center justify-center text-xs"><i class="fa-solid fa-layer-group"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">第I類、第IIa類、第IIb類及第III類產品分類初步評估</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#E3F3FC] text-[#035DA8] flex items-center justify-center text-xs"><i class="fa-solid fa-route"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">澳門註冊、備案及市場准入路徑建議</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#E3F3FC] text-[#035DA8] flex items-center justify-center text-xs"><i class="fa-solid fa-building-columns"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">澳門藥物監督管理局申請要求匹配</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#E3F3FC] text-[#035DA8] flex items-center justify-center text-xs"><i class="fa-solid fa-clipboard-check"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">註冊或備案文件清單生成</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#DFF5F7] text-[#1A8FBF] flex items-center justify-center text-xs"><i class="fa-solid fa-wand-magic-sparkles"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">AI輔助技術文件整理及內容提取</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#DFF5F7] text-[#1A8FBF] flex items-center justify-center text-xs"><i class="fa-solid fa-file-shield"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">文件完整性及一致性檢查</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#DFF5F7] text-[#1A8FBF] flex items-center justify-center text-xs"><i class="fa-solid fa-heart-pulse"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">臨床評價、風險管理及檢驗資料管理</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#DFF5F7] text-[#1A8FBF] flex items-center justify-center text-xs"><i class="fa-solid fa-tags"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">標籤及使用說明書資料檢查</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#DFF5F7] text-[#1A8FBF] flex items-center justify-center text-xs"><i class="fa-solid fa-globe"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">境外註冊及銷售證明資料管理</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#DFF5F7] text-[#1A8FBF] flex items-center justify-center text-xs"><i class="fa-solid fa-diagram-project"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">任務分配與澳門申請進度管理</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#DFF5F7] text-[#1A8FBF] flex items-center justify-center text-xs"><i class="fa-solid fa-code-branch"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">軟件及AI算法版本記錄</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#DFF5F7] text-[#1A8FBF] flex items-center justify-center text-xs"><i class="fa-solid fa-bell"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">產品變更、註冊續期及合規提醒</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#DFF5F7] text-[#1A8FBF] flex items-center justify-center text-xs"><i class="fa-solid fa-triangle-exclamation"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">醫療器械上市後不良事件資料管理</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#DFF5F7] text-[#1A8FBF] flex items-center justify-center text-xs"><i class="fa-solid fa-book-medical"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">澳門醫療器械法規及技術要求知識庫</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><span class="w-8 h-8 shrink-0 rounded-lg bg-[#DFF5F7] text-[#1A8FBF] flex items-center justify-center text-xs"><i class="fa-solid fa-link"></i></span><p class="text-xs md:text-sm text-slate-700 font-medium">「港澳藥械通」相關政策資料及項目記錄管理</p></div>
     </div>
-    <div class="bg-[#2A2016] rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden">
-      <div class="absolute top-0 right-0 p-10 opacity-5 pointer-events-none"><i class="fa-solid fa-shield-halved text-8xl"></i></div>
+    <div class="bg-gradient-to-r from-[#0B4A7F] to-[#11596B] rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-xl shadow-[#035DA8]/20">
+      <div class="absolute top-0 right-0 p-10 opacity-10 pointer-events-none"><i class="fa-solid fa-shield-halved text-8xl"></i></div>
       <div class="relative z-10 max-w-3xl space-y-4">
-        <p class="text-sm md:text-base text-slate-200 font-light leading-relaxed">平台的核心價值並非只提供一般文件儲存功能，而是將澳門醫療器械法規要求、AI輔助分析、技術文件管理及本地專業服務整合於同一工作流程，協助境內外客戶提高進入澳門醫療器械市場的準備效率。</p>
-        <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed"><i class="fa-solid fa-circle-info text-[#C1A376] mr-2"></i>平台提供的是AI輔助分析、文件管理及合規項目支援。所有AI生成或整理的結果均須經客戶及專業人員核實；產品最終分類、申請策略、技術文件要求及審批結果，以澳門藥物監督管理局的正式要求及決定為準。</p>
+        <p class="text-sm md:text-base text-blue-50 font-light leading-relaxed">平台的核心價值並非只提供一般文件儲存功能，而是將澳門醫療器械法規要求、AI輔助分析、技術文件管理及本地專業服務整合於同一工作流程，協助境內外客戶提高進入澳門醫療器械市場的準備效率。</p>
+        <p class="text-xs md:text-sm text-blue-200/80 font-light leading-relaxed bg-white/5 border border-white/10 rounded-2xl p-4"><i class="fa-solid fa-circle-info text-[#6FCDD8] mr-2"></i>平台提供的是AI輔助分析、文件管理及合規項目支援。所有AI生成或整理的結果均須經客戶及專業人員核實；產品最終分類、申請策略、技術文件要求及審批結果，以澳門藥物監督管理局的正式要求及決定為準。</p>
       </div>
     </div>
   </div>
@@ -143,74 +191,74 @@
 <section id="services" class="py-20 bg-white">
   <div class="max-w-6xl mx-auto px-6">
     <div class="max-w-3xl mb-12">
-      <div class="text-[#C1A376] font-black text-[10px] uppercase tracking-[0.3em] mb-3">Professional Services</div>
-      <h2 class="text-2xl md:text-4xl font-black text-[#2A2016] mb-4">澳門醫療器械註冊及合規專業服務</h2>
-      <div class="w-16 h-1 bg-[#C1A376] rounded-full mb-8"></div>
-      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed font-light">
+      <div class="text-[#1A8FBF] font-black text-[11px] uppercase tracking-[0.3em] mb-3 flex items-center gap-2"><span class="w-8 h-[2px] bg-[#37A7BB] rounded-full inline-block"></span>Professional Services</div>
+      <h2 class="text-2xl md:text-4xl font-black text-[#0B4A7F] mb-4">澳門醫療器械註冊及合規專業服務</h2>
+      <div class="w-16 h-1 bg-gradient-to-r from-[#035DA8] to-[#37A7BB] rounded-full mb-8"></div>
+      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed">
         <p>除濠概853自研SaaS系統外，我們亦提供由專業團隊參與的澳門醫療器械註冊、備案及市場准入服務。</p>
         <p>我們根據產品的預期用途、技術原理、使用方式及風險程度，參照澳門醫療器械分類目錄、分類規則及相關技術要求，協助客戶初步評估產品屬於第I類、第IIa類、第IIb類或第III類醫療器械，並規劃相應的澳門註冊或備案路徑。</p>
       </div>
     </div>
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-      <div class="bg-slate-50 border border-slate-100 rounded-2xl p-5 text-center"><div class="text-lg font-black text-[#2A2016]">第 I 類</div><div class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1 mb-3">低風險</div><span class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-[#C1A376]/15 text-[#8A6D3B]">備案</span></div>
-      <div class="bg-slate-50 border border-slate-100 rounded-2xl p-5 text-center"><div class="text-lg font-black text-[#2A2016]">第 IIa 類</div><div class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1 mb-3">中低風險</div><span class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-[#C1A376]/15 text-[#8A6D3B]">備案</span></div>
-      <div class="bg-slate-50 border border-slate-100 rounded-2xl p-5 text-center"><div class="text-lg font-black text-[#2A2016]">第 IIb 類</div><div class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1 mb-3">中高風險</div><span class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-[#2A2016] text-[#C1A376]">註冊</span></div>
-      <div class="bg-slate-50 border border-slate-100 rounded-2xl p-5 text-center"><div class="text-lg font-black text-[#2A2016]">第 III 類</div><div class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1 mb-3">高風險</div><span class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-[#2A2016] text-[#C1A376]">註冊</span></div>
+      <div class="bg-white border border-[#D8ECF7] rounded-2xl p-5 text-center shadow-sm hover:shadow-lg hover:shadow-[#035DA8]/10 transition-all"><div class="text-lg font-black text-[#0B4A7F]">第 I 類</div><div class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1 mb-3">低風險</div><span class="inline-block px-4 py-1 rounded-full text-[11px] font-black bg-[#DFF5F7] text-[#11596B]">備案</span></div>
+      <div class="bg-white border border-[#D8ECF7] rounded-2xl p-5 text-center shadow-sm hover:shadow-lg hover:shadow-[#035DA8]/10 transition-all"><div class="text-lg font-black text-[#0B4A7F]">第 IIa 類</div><div class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1 mb-3">中低風險</div><span class="inline-block px-4 py-1 rounded-full text-[11px] font-black bg-[#DFF5F7] text-[#11596B]">備案</span></div>
+      <div class="bg-white border border-[#D8ECF7] rounded-2xl p-5 text-center shadow-sm hover:shadow-lg hover:shadow-[#035DA8]/10 transition-all"><div class="text-lg font-black text-[#0B4A7F]">第 IIb 類</div><div class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1 mb-3">中高風險</div><span class="inline-block px-4 py-1 rounded-full text-[11px] font-black bg-[#035DA8] text-white shadow-md shadow-[#035DA8]/30">註冊</span></div>
+      <div class="bg-white border border-[#D8ECF7] rounded-2xl p-5 text-center shadow-sm hover:shadow-lg hover:shadow-[#035DA8]/10 transition-all"><div class="text-lg font-black text-[#0B4A7F]">第 III 類</div><div class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1 mb-3">高風險</div><span class="inline-block px-4 py-1 rounded-full text-[11px] font-black bg-[#035DA8] text-white shadow-md shadow-[#035DA8]/30">註冊</span></div>
     </div>
-    <h3 class="text-lg md:text-xl font-black text-[#2A2016] mb-6">服務可包括</h3>
+    <h3 class="text-lg md:text-xl font-black text-[#0B4A7F] mb-6 flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-[#37A7BB]/15 text-[#11596B] flex items-center justify-center text-sm"><i class="fa-solid fa-user-doctor"></i></span>服務可包括</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">澳門醫療器械監管屬性分析</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">澳門醫療器械分類申請支援</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">第IIb類及第III類醫療器械註冊支援</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">第I類及第IIa類醫療器械備案支援</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">境外製造商及產品持有人資料整理</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">境外註冊或銷售許可證明整理</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">安全與性能資料整理</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">臨床及非臨床評價資料準備</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">風險管理、檢驗報告及技術文件整理</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">標籤及使用說明書資料準備</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">澳門申請遞交及補充資料協調</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">註冊續期及註冊資料更改</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">備案資料更改及取消</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">上市後不良事件及合規資料管理</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">澳門進出口、批發及零售要求初步分析</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">「港澳藥械通」相關政策及合作路徑前期分析</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">澳門醫療器械監管屬性分析</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">澳門醫療器械分類申請支援</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">第IIb類及第III類醫療器械註冊支援</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">第I類及第IIa類醫療器械備案支援</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">境外製造商及產品持有人資料整理</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">境外註冊或銷售許可證明整理</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">安全與性能資料整理</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">臨床及非臨床評價資料準備</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">風險管理、檢驗報告及技術文件整理</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">標籤及使用說明書資料準備</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">澳門申請遞交及補充資料協調</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">註冊續期及註冊資料更改</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">備案資料更改及取消</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">上市後不良事件及合規資料管理</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">澳門進出口、批發及零售要求初步分析</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">「港澳藥械通」相關政策及合作路徑前期分析</p></div>
     </div>
   </div>
 </section>
 
 <!-- ======== AI-CRO ======== -->
-<section id="aicro" class="py-20 bg-slate-50">
+<section id="aicro" class="py-20 bg-[#F2FAFE] bg-dots-pattern">
   <div class="max-w-6xl mx-auto px-6">
     <div class="max-w-3xl mb-12">
-      <div class="text-[#C1A376] font-black text-[10px] uppercase tracking-[0.3em] mb-3">AI-CRO</div>
-      <h2 class="text-2xl md:text-4xl font-black text-[#2A2016] mb-4">AI-CRO專業服務</h2>
-      <p class="text-lg text-[#C1A376] font-bold mb-6">面向澳門醫療器械註冊的AI技術轉化及合規服務</p>
-      <div class="w-16 h-1 bg-[#C1A376] rounded-full mb-8"></div>
-      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed font-light">
+      <div class="text-[#1A8FBF] font-black text-[11px] uppercase tracking-[0.3em] mb-3 flex items-center gap-2"><span class="w-8 h-[2px] bg-[#37A7BB] rounded-full inline-block"></span>AI-CRO</div>
+      <h2 class="text-2xl md:text-4xl font-black text-[#0B4A7F] mb-4">AI-CRO專業服務</h2>
+      <p class="text-lg text-[#0E7490] font-bold mb-6">面向澳門醫療器械註冊的AI技術轉化及合規服務</p>
+      <div class="w-16 h-1 bg-gradient-to-r from-[#035DA8] to-[#37A7BB] rounded-full mb-8"></div>
+      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed">
         <p>濠概853提供面向AI醫療器械、醫療器械軟件及數字醫療產品的AI-CRO專業服務，協助全球項目完成由技術研究、產品定義、性能驗證及臨床評價，至澳門醫療器械註冊、備案及市場准入的轉化工作。</p>
         <p>服務以產品進入澳門醫療器械監管體系為主要目標，將澳門藥物監督管理局的分類、臨床評價、註冊資料、標籤及說明書、軟件質量管理和上市後管理要求，提前納入AI醫療產品的研發及驗證流程。</p>
       </div>
     </div>
-    <h3 class="text-lg md:text-xl font-black text-[#2A2016] mb-6">服務內容可包括</h3>
+    <h3 class="text-lg md:text-xl font-black text-[#0B4A7F] mb-6 flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-[#035DA8]/10 text-[#035DA8] flex items-center justify-center text-sm"><i class="fa-solid fa-microscope"></i></span>服務內容可包括</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-stethoscope text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">產品預期用途及澳門監管屬性分析</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-route text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">澳門醫療器械分類及申請路徑規劃</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-window-restore text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">獨立軟件是否屬於醫療器械的初步評估</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-brain text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">AI模型訓練及驗證方案設計</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-database text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">訓練、測試及外部驗證數據評估</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-bullseye text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">算法性能指標及接受標準制定</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-hospital text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">臨床評價及真實世界數據方案支援</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-user-shield text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">AI風險管理及人工覆核機制</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-recycle text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">軟件生命週期及版本管理</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-scale-balanced text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">算法偏差、泛化能力及可解釋性分析</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-lock text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">網絡安全及數據合規文件準備</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-folder-open text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">澳門醫療器械註冊技術資料整理</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-building-columns text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">澳門藥物監督管理局申請協調</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-chart-line text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">上市後性能監測及模型變更評估</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-rotate text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">註冊資料變更及版本更新支援</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-stethoscope text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">產品預期用途及澳門監管屬性分析</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-route text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">澳門醫療器械分類及申請路徑規劃</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-window-restore text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">獨立軟件是否屬於醫療器械的初步評估</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-brain text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">AI模型訓練及驗證方案設計</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-database text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">訓練、測試及外部驗證數據評估</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-bullseye text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">算法性能指標及接受標準制定</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-hospital text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">臨床評價及真實世界數據方案支援</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-user-shield text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">AI風險管理及人工覆核機制</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-recycle text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">軟件生命週期及版本管理</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-scale-balanced text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">算法偏差、泛化能力及可解釋性分析</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-lock text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">網絡安全及數據合規文件準備</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-folder-open text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">澳門醫療器械註冊技術資料整理</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-building-columns text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">澳門藥物監督管理局申請協調</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-chart-line text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">上市後性能監測及模型變更評估</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-rotate text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">註冊資料變更及版本更新支援</p></div>
     </div>
-    <p class="max-w-3xl text-sm md:text-base text-slate-600 leading-relaxed font-light">我們透過濠概853自研AI賦能SaaS系統，協助客戶將研究數據、算法結果、臨床證據及產品性能轉化為可評估、可驗證及可追溯的技術資料，縮短科研成果與澳門正式醫療產品之間的距離。</p>
+    <p class="max-w-3xl text-sm md:text-base text-slate-600 leading-relaxed">我們透過濠概853自研AI賦能SaaS系統，協助客戶將研究數據、算法結果、臨床證據及產品性能轉化為可評估、可驗證及可追溯的技術資料，縮短科研成果與澳門正式醫療產品之間的距離。</p>
   </div>
 </section>
 
@@ -218,171 +266,177 @@
 <section id="joint" class="py-20 bg-white">
   <div class="max-w-6xl mx-auto px-6">
     <div class="max-w-3xl mb-12">
-      <div class="text-[#C1A376] font-black text-[10px] uppercase tracking-[0.3em] mb-3">Joint Development</div>
-      <h2 class="text-2xl md:text-4xl font-black text-[#2A2016] mb-4">聯合開發</h2>
-      <p class="text-lg text-[#C1A376] font-bold mb-6">將澳門醫療器械法規提前納入產品研發</p>
-      <div class="w-16 h-1 bg-[#C1A376] rounded-full mb-8"></div>
-      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed font-light">
+      <div class="text-[#1A8FBF] font-black text-[11px] uppercase tracking-[0.3em] mb-3 flex items-center gap-2"><span class="w-8 h-[2px] bg-[#37A7BB] rounded-full inline-block"></span>Joint Development</div>
+      <h2 class="text-2xl md:text-4xl font-black text-[#0B4A7F] mb-4">聯合開發</h2>
+      <p class="text-lg text-[#0E7490] font-bold mb-6">將澳門醫療器械法規提前納入產品研發</p>
+      <div class="w-16 h-1 bg-gradient-to-r from-[#035DA8] to-[#37A7BB] rounded-full mb-8"></div>
+      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed">
         <p>對於仍處於科研成果、概念驗證或產品原型階段的項目，濠概853可與全球企業、大學、科研機構及醫療團隊開展聯合開發。</p>
         <p>我們在項目早期共同參與產品定位、技術需求、數據方案、算法驗證、應用場景及澳門醫療器械註冊路徑設計，並將第12/2025號法律《醫療器械監督管理制度》及澳門藥物監督管理局相關技術要求提前納入產品開發流程。</p>
         <p>透過「研發同步合規」模式，項目可在設計和開發階段逐步建立產品性能、風險管理、軟件版本、算法驗證及臨床評價記錄，降低完成開發後才需要重新測試、補充資料或調整產品定位的風險。</p>
       </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">澳門醫療需求及產品定位</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">預期用途及目標人群定義</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">醫療器械監管屬性及分類分析</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">軟件、硬件及AI功能規劃</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">原型設計與可行性驗證</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">多模態醫療數據處理</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">AI算法訓練、測試及優化</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">臨床合作及澳門試點應用</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">知識產權及科研成果轉化安排</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">澳門醫療器械註冊或備案</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">澳門市場准入及合作夥伴對接</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">「港澳藥械通」相關政策條件前期研究</p></div>
-      <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl"><p class="text-xs md:text-sm text-slate-700">大灣區應用及商業模式規劃</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">澳門醫療需求及產品定位</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">預期用途及目標人群定義</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">醫療器械監管屬性及分類分析</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">軟件、硬件及AI功能規劃</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">原型設計與可行性驗證</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">多模態醫療數據處理</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">AI算法訓練、測試及優化</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">臨床合作及澳門試點應用</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">知識產權及科研成果轉化安排</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">澳門醫療器械註冊或備案</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">澳門市場准入及合作夥伴對接</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">「港澳藥械通」相關政策條件前期研究</p></div>
+      <div class="p-4 bg-[#F2FAFE] border border-[#E3F3FC] rounded-2xl"><p class="text-xs md:text-sm text-slate-700 font-medium">大灣區應用及商業模式規劃</p></div>
     </div>
   </div>
 </section>
 
 <!-- ======== PRIVATE DEPLOYMENT ======== -->
-<section id="deploy" class="py-20 bg-slate-50">
+<section id="deploy" class="py-20 bg-[#F2FAFE] bg-dots-pattern">
   <div class="max-w-6xl mx-auto px-6">
     <div class="max-w-3xl mb-12">
-      <div class="text-[#C1A376] font-black text-[10px] uppercase tracking-[0.3em] mb-3">On-Premise</div>
-      <h2 class="text-2xl md:text-4xl font-black text-[#2A2016] mb-4">私有化部署</h2>
-      <p class="text-lg text-[#C1A376] font-bold mb-6">部署濠概853自研澳門醫療器械合規系統</p>
-      <div class="w-16 h-1 bg-[#C1A376] rounded-full mb-8"></div>
-      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed font-light">
+      <div class="text-[#1A8FBF] font-black text-[11px] uppercase tracking-[0.3em] mb-3 flex items-center gap-2"><span class="w-8 h-[2px] bg-[#37A7BB] rounded-full inline-block"></span>On-Premise</div>
+      <h2 class="text-2xl md:text-4xl font-black text-[#0B4A7F] mb-4">私有化部署</h2>
+      <p class="text-lg text-[#0E7490] font-bold mb-6">部署濠概853自研澳門醫療器械合規系統</p>
+      <div class="w-16 h-1 bg-gradient-to-r from-[#035DA8] to-[#37A7BB] rounded-full mb-8"></div>
+      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed">
         <p>對於醫療機構、大型企業、醫療器械製造商、科研平台及涉及敏感醫療數據的項目，濠概853可按照客戶的資訊安全、數據管理及內部審批要求，提供自研AI醫療器械合規系統的私有化部署方案。</p>
         <p>平台可部署於客戶指定的本地伺服器、私有雲或其他受控網絡環境，並按照客戶進入澳門醫療器械市場的實際需要，配置專屬功能、權限、工作流程及澳門法規知識庫。</p>
       </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-cube text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">濠概853自研系統獨立部署</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-book text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">澳門醫療器械法規專屬知識庫</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-building-columns text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">澳門藥物監督管理局申請要求管理</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-file-lines text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">註冊及備案文件模板配置</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-hard-drive text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">數據本地化儲存及管理</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-users-gear text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">用戶角色與權限設定</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-palette text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">企業品牌及功能定制</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-diagram-project text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">內部審批工作流程配置</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-clock-rotate-left text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">操作日誌及文件追蹤</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-plug text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">與客戶現有系統進行接口整合</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-wand-magic-sparkles text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">專屬AI模型及文件分析工具配置</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-code-branch text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">軟件及算法版本管理</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-bell text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">註冊續期、變更及上市後合規提醒</p></div>
-      <div class="p-4 bg-white border border-slate-100 rounded-xl flex gap-3 items-start"><i class="fa-solid fa-headset text-[#C1A376] mt-1"></i><p class="text-xs md:text-sm text-slate-700">持續維護、升級及技術支援</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-cube text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">濠概853自研系統獨立部署</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-book-medical text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">澳門醫療器械法規專屬知識庫</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-building-columns text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">澳門藥物監督管理局申請要求管理</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-file-lines text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">註冊及備案文件模板配置</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-hard-drive text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">數據本地化儲存及管理</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-users-gear text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">用戶角色與權限設定</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-palette text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">企業品牌及功能定制</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-diagram-project text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">內部審批工作流程配置</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-clock-rotate-left text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">操作日誌及文件追蹤</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-plug text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">與客戶現有系統進行接口整合</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-wand-magic-sparkles text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">專屬AI模型及文件分析工具配置</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-code-branch text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">軟件及算法版本管理</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-bell text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">註冊續期、變更及上市後合規提醒</p></div>
+      <div class="p-4 bg-white border border-[#D8ECF7] rounded-2xl flex gap-3 items-start hover:shadow-md transition-all"><i class="fa-solid fa-headset text-[#1A8FBF] mt-0.5"></i><p class="text-xs md:text-sm text-slate-700 font-medium">持續維護、升級及技術支援</p></div>
     </div>
-    <p class="max-w-3xl text-sm md:text-base text-slate-600 leading-relaxed font-light">由標準化SaaS工具、澳門醫療器械註冊服務，到專屬AI-CRO項目及私有化部署，濠概853可按照不同產品階段及組織需求，提供面向澳門市場的靈活、可擴展合作方案。</p>
+    <p class="max-w-3xl text-sm md:text-base text-slate-600 leading-relaxed">由標準化SaaS工具、澳門醫療器械註冊服務，到專屬AI-CRO項目及私有化部署，濠概853可按照不同產品階段及組織需求，提供面向澳門市場的靈活、可擴展合作方案。</p>
   </div>
 </section>
 
 <!-- ======== COVERAGE / STAGES ======== -->
-<section id="coverage" class="py-20 bg-white">
+<section id="coverage" class="py-20 bg-white bg-plus-pattern">
   <div class="max-w-6xl mx-auto px-6">
     <div class="max-w-3xl mb-12">
-      <div class="text-[#C1A376] font-black text-[10px] uppercase tracking-[0.3em] mb-3">Coverage</div>
-      <h2 class="text-2xl md:text-4xl font-black text-[#2A2016] mb-4">服務覆蓋範圍</h2>
-      <p class="text-lg text-[#C1A376] font-bold mb-6">覆蓋多類產品、不同發展階段及澳門完整合規週期</p>
-      <div class="w-16 h-1 bg-[#C1A376] rounded-full mb-8"></div>
-      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed font-light">
+      <div class="text-[#1A8FBF] font-black text-[11px] uppercase tracking-[0.3em] mb-3 flex items-center gap-2"><span class="w-8 h-[2px] bg-[#37A7BB] rounded-full inline-block"></span>Coverage</div>
+      <h2 class="text-2xl md:text-4xl font-black text-[#0B4A7F] mb-4">服務覆蓋範圍</h2>
+      <p class="text-lg text-[#0E7490] font-bold mb-6">覆蓋多類產品、不同發展階段及澳門完整合規週期</p>
+      <div class="w-16 h-1 bg-gradient-to-r from-[#035DA8] to-[#37A7BB] rounded-full mb-8"></div>
+      <div class="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed">
         <p>濠概853的服務覆蓋傳統醫療器械、醫療器械軟件、AI賦能醫療器械、智能可穿戴設備及數字醫療系統，重點協助相關產品按照澳門第12/2025號法律《醫療器械監督管理制度》進行分類、註冊、備案及市場准入準備。</p>
         <p>無論產品正處於科研概念、原型開發、技術驗證、臨床評價、澳門註冊或備案申請、市場准入或上市後管理階段，我們均可根據產品的預期用途、技術特點及風險程度，制定相應的澳門醫療器械合規方案。</p>
       </div>
     </div>
-    <h3 class="text-lg md:text-xl font-black text-[#2A2016] mb-8">產品發展階段</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl hover:shadow-md transition-all">
-        <div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-xl bg-[#C1A376]/15 text-[#C1A376] flex items-center justify-center font-black">01</div><h4 class="font-black text-slate-900 text-sm">科研及概念階段</h4></div>
-        <p class="text-xs md:text-sm text-slate-600 font-light leading-relaxed">協助團隊明確產品的預期用途、目標人群、使用場景及醫療價值，並按照澳門醫療器械定義初步分析產品是否可能納入澳門藥物監督管理局的監管範圍。</p>
-      </div>
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl hover:shadow-md transition-all">
-        <div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-xl bg-[#C1A376]/15 text-[#C1A376] flex items-center justify-center font-black">02</div><h4 class="font-black text-slate-900 text-sm">產品設計階段</h4></div>
-        <p class="text-xs md:text-sm text-slate-600 font-light leading-relaxed">協助將澳門醫療器械分類、風險管理、軟件生命週期、臨床評價及技術文件要求納入產品設計和開發流程。</p>
-      </div>
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl hover:shadow-md transition-all">
-        <div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-xl bg-[#C1A376]/15 text-[#C1A376] flex items-center justify-center font-black">03</div><h4 class="font-black text-slate-900 text-sm">技術驗證階段</h4></div>
-        <p class="text-xs md:text-sm text-slate-600 font-light leading-relaxed">支援產品測試、算法性能驗證、數據評估、非臨床研究及臨床評價方案的規劃，為澳門醫療器械註冊或備案準備相關資料。</p>
-      </div>
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl hover:shadow-md transition-all">
-        <div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-xl bg-[#C1A376]/15 text-[#C1A376] flex items-center justify-center font-black">04</div><h4 class="font-black text-slate-900 text-sm">註冊及備案階段</h4></div>
-        <p class="text-xs md:text-sm text-slate-600 font-light leading-relaxed">透過濠概853自研AI賦能SaaS系統及專業服務，協助準備澳門申請文件、協調資料遞交、回覆補充要求及跟進申請進度。</p>
-      </div>
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl hover:shadow-md transition-all">
-        <div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-xl bg-[#C1A376]/15 text-[#C1A376] flex items-center justify-center font-black">05</div><h4 class="font-black text-slate-900 text-sm">澳門市場准入階段</h4></div>
-        <p class="text-xs md:text-sm text-slate-600 font-light leading-relaxed">支援澳門本地合作、進出口要求分析、渠道對接、試點應用及市場落地；對於有相關需求的項目，亦可協助了解「港澳藥械通」政策及潛在合作條件。</p>
-      </div>
-      <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl hover:shadow-md transition-all">
-        <div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-xl bg-[#C1A376]/15 text-[#C1A376] flex items-center justify-center font-black">06</div><h4 class="font-black text-slate-900 text-sm">上市後管理階段</h4></div>
-        <p class="text-xs md:text-sm text-slate-600 font-light leading-relaxed">支援澳門醫療器械註冊續期、資料變更、軟件版本管理、性能監測、不良事件資料及合規文件更新。</p>
+    <h3 class="text-lg md:text-xl font-black text-[#0B4A7F] mb-10 flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-[#37A7BB]/15 text-[#11596B] flex items-center justify-center text-sm"><i class="fa-solid fa-wave-square"></i></span>產品發展階段</h3>
+    <div class="relative">
+      <div class="hidden lg:block absolute left-[27px] top-4 bottom-4 w-[3px] bg-gradient-to-b from-[#035DA8] via-[#37A7BB] to-[#6FCDD8] rounded-full opacity-30"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="relative p-6 bg-white border border-[#D8ECF7] rounded-3xl shadow-sm hover:shadow-lg hover:shadow-[#035DA8]/10 transition-all">
+          <div class="flex items-center gap-3 mb-4"><div class="w-14 h-9 rounded-full bg-gradient-to-r from-[#035DA8] to-[#1A8FBF] text-white flex items-center justify-center font-black text-sm shadow-md">01</div><h4 class="font-black text-[#0B4A7F] text-sm">科研及概念階段</h4></div>
+          <p class="text-xs md:text-sm text-slate-600 leading-relaxed">協助團隊明確產品的預期用途、目標人群、使用場景及醫療價值，並按照澳門醫療器械定義初步分析產品是否可能納入澳門藥物監督管理局的監管範圍。</p>
+        </div>
+        <div class="relative p-6 bg-white border border-[#D8ECF7] rounded-3xl shadow-sm hover:shadow-lg hover:shadow-[#035DA8]/10 transition-all">
+          <div class="flex items-center gap-3 mb-4"><div class="w-14 h-9 rounded-full bg-gradient-to-r from-[#0B5DA0] to-[#1E9BC4] text-white flex items-center justify-center font-black text-sm shadow-md">02</div><h4 class="font-black text-[#0B4A7F] text-sm">產品設計階段</h4></div>
+          <p class="text-xs md:text-sm text-slate-600 leading-relaxed">協助將澳門醫療器械分類、風險管理、軟件生命週期、臨床評價及技術文件要求納入產品設計和開發流程。</p>
+        </div>
+        <div class="relative p-6 bg-white border border-[#D8ECF7] rounded-3xl shadow-sm hover:shadow-lg hover:shadow-[#035DA8]/10 transition-all">
+          <div class="flex items-center gap-3 mb-4"><div class="w-14 h-9 rounded-full bg-gradient-to-r from-[#0A6DA3] to-[#28A9C8] text-white flex items-center justify-center font-black text-sm shadow-md">03</div><h4 class="font-black text-[#0B4A7F] text-sm">技術驗證階段</h4></div>
+          <p class="text-xs md:text-sm text-slate-600 leading-relaxed">支援產品測試、算法性能驗證、數據評估、非臨床研究及臨床評價方案的規劃，為澳門醫療器械註冊或備案準備相關資料。</p>
+        </div>
+        <div class="relative p-6 bg-white border border-[#D8ECF7] rounded-3xl shadow-sm hover:shadow-lg hover:shadow-[#035DA8]/10 transition-all">
+          <div class="flex items-center gap-3 mb-4"><div class="w-14 h-9 rounded-full bg-gradient-to-r from-[#0F7EA6] to-[#33B3CC] text-white flex items-center justify-center font-black text-sm shadow-md">04</div><h4 class="font-black text-[#0B4A7F] text-sm">註冊及備案階段</h4></div>
+          <p class="text-xs md:text-sm text-slate-600 leading-relaxed">透過濠概853自研AI賦能SaaS系統及專業服務，協助準備澳門申請文件、協調資料遞交、回覆補充要求及跟進申請進度。</p>
+        </div>
+        <div class="relative p-6 bg-white border border-[#D8ECF7] rounded-3xl shadow-sm hover:shadow-lg hover:shadow-[#035DA8]/10 transition-all">
+          <div class="flex items-center gap-3 mb-4"><div class="w-14 h-9 rounded-full bg-gradient-to-r from-[#158FA8] to-[#3FBDD0] text-white flex items-center justify-center font-black text-sm shadow-md">05</div><h4 class="font-black text-[#0B4A7F] text-sm">澳門市場准入階段</h4></div>
+          <p class="text-xs md:text-sm text-slate-600 leading-relaxed">支援澳門本地合作、進出口要求分析、渠道對接、試點應用及市場落地；對於有相關需求的項目，亦可協助了解「港澳藥械通」政策及潛在合作條件。</p>
+        </div>
+        <div class="relative p-6 bg-white border border-[#D8ECF7] rounded-3xl shadow-sm hover:shadow-lg hover:shadow-[#035DA8]/10 transition-all">
+          <div class="flex items-center gap-3 mb-4"><div class="w-14 h-9 rounded-full bg-gradient-to-r from-[#1B9FA9] to-[#6FCDD8] text-white flex items-center justify-center font-black text-sm shadow-md">06</div><h4 class="font-black text-[#0B4A7F] text-sm">上市後管理階段</h4></div>
+          <p class="text-xs md:text-sm text-slate-600 leading-relaxed">支援澳門醫療器械註冊續期、資料變更、軟件版本管理、性能監測、不良事件資料及合規文件更新。</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ======== VALIDATION ======== -->
-<section id="validation" class="py-20 bg-[#2A2016] text-white relative overflow-hidden">
-  <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-[#C1A376]/5 rounded-full -translate-y-1/2 -translate-x-1/3 blur-[100px] pointer-events-none"></div>
+<section id="validation" class="py-20 bg-gradient-to-b from-[#0B4A7F] via-[#0A5590] to-[#11596B] text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.06] pointer-events-none" style="background-image:url(&quot;data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 13v10M13 18h10' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E&quot;)"></div>
+  <svg class="absolute left-0 right-0 top-10 w-full h-14 opacity-20 pointer-events-none" viewBox="0 0 1440 56" fill="none" preserveAspectRatio="none">
+    <polyline points="0,28 240,28 260,28 270,8 280,48 290,28 520,28 580,28 590,14 600,42 610,28 860,28 920,28 930,10 940,46 950,28 1200,28 1280,28 1290,16 1300,40 1310,28 1440,28" stroke="#6FCDD8" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  </svg>
   <div class="max-w-6xl mx-auto px-6 relative z-10">
     <div class="max-w-3xl mb-14">
-      <div class="text-[#C1A376] font-black text-[10px] uppercase tracking-[0.3em] mb-3">Commercial Validation</div>
+      <div class="text-[#6FCDD8] font-black text-[11px] uppercase tracking-[0.3em] mb-3 flex items-center gap-2"><span class="w-8 h-[2px] bg-[#6FCDD8] rounded-full inline-block"></span>Commercial Validation</div>
       <h2 class="text-2xl md:text-4xl font-black mb-4">商業驗證</h2>
-      <p class="text-lg text-[#C1A376] font-bold mb-6">濠概853自研平台已完成初步市場及項目驗證</p>
-      <div class="w-16 h-1 bg-[#C1A376] rounded-full mb-8"></div>
-      <div class="space-y-4 text-sm md:text-base text-slate-300 font-light leading-relaxed">
+      <p class="text-lg text-[#8FE0E8] font-bold mb-6">濠概853自研平台已完成初步市場及項目驗證</p>
+      <div class="w-16 h-1 bg-gradient-to-r from-[#6FCDD8] to-[#37A7BB] rounded-full mb-8"></div>
+      <div class="space-y-4 text-sm md:text-base text-blue-100/90 leading-relaxed">
         <p>濠概853自主研發的澳門醫療器械註冊及合規SaaS平台，已完成由市場需求研究、用戶測試、系統集成至客戶項目交付的初步商業驗證。</p>
         <p>平台圍繞澳門醫療器械分類、註冊、備案、技術文件及市場准入需求，逐步形成由AI賦能SaaS系統、澳門醫療器械專業服務、AI-CRO、聯合開發及持續合規管理組成的服務模式。</p>
         <p>平台以真實用戶需求、產品使用數據及客戶項目作為發展基礎，持續驗證全球醫療器械企業及科研項目對澳門醫療器械數字化註冊工具、AI合規服務、澳門藥物監督管理局申請支援及市場准入服務的需求。</p>
       </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="p-8 bg-white/5 border border-white/10 rounded-[2rem]">
-        <div class="text-4xl md:text-5xl font-black text-[#C1A376] mb-3">300<span class="text-2xl">+</span></div>
+      <div class="p-8 bg-white/[0.07] backdrop-blur border border-white/15 rounded-[2rem] hover:bg-white/10 transition-all">
+        <div class="flex items-baseline gap-2 mb-3"><span class="text-4xl md:text-5xl font-black text-[#6FCDD8]">300</span><span class="text-2xl font-black text-[#6FCDD8]">+</span><i class="fa-solid fa-users ml-3 text-[#6FCDD8]/50 text-xl"></i></div>
         <h3 class="font-black text-lg mb-3">名用戶參與平台驗證</h3>
-        <p class="text-xs md:text-sm text-slate-300 font-light leading-relaxed">濠概853自研平台及相關服務已累計獲得超過300名用戶參與使用、測試、諮詢或需求驗證，涵蓋醫療器械、科技研發、AI醫療、數字醫療、科研轉化及專業服務等不同領域。相關用戶反饋已應用於澳門醫療器械分類分析、法規匹配、文件管理、項目協作及平台操作流程的持續優化。</p>
+        <p class="text-xs md:text-sm text-blue-100/80 leading-relaxed">濠概853自研平台及相關服務已累計獲得超過300名用戶參與使用、測試、諮詢或需求驗證，涵蓋醫療器械、科技研發、AI醫療、數字醫療、科研轉化及專業服務等不同領域。相關用戶反饋已應用於澳門醫療器械分類分析、法規匹配、文件管理、項目協作及平台操作流程的持續優化。</p>
       </div>
-      <div class="p-8 bg-white/5 border border-white/10 rounded-[2rem]">
-        <div class="text-4xl md:text-5xl font-black text-[#C1A376] mb-3">3<span class="text-xl ml-2 font-bold">大平台</span></div>
+      <div class="p-8 bg-white/[0.07] backdrop-blur border border-white/15 rounded-[2rem] hover:bg-white/10 transition-all">
+        <div class="flex items-baseline gap-2 mb-3"><span class="text-4xl md:text-5xl font-black text-[#6FCDD8]">3</span><span class="text-lg font-black text-[#8FE0E8]">大平台</span><i class="fa-solid fa-diagram-project ml-3 text-[#6FCDD8]/50 text-xl"></i></div>
         <h3 class="font-black text-lg mb-3">集成已上線</h3>
-        <p class="text-xs md:text-sm text-slate-300 font-light leading-relaxed">濠概853已完成三大平台集成並正式上線，初步建立由客戶服務入口、AI輔助分析、澳門法規資訊匹配、技術文件處理至註冊項目管理的數字化服務流程。相關集成提升了澳門醫療器械項目的資料流轉、客戶協作、文件管理及服務交付效率，並為後續擴展澳門藥物監督管理局申請資料管理、註冊及備案工具、上市後合規管理和企業級功能建立技術基礎。</p>
+        <p class="text-xs md:text-sm text-blue-100/80 leading-relaxed">濠概853已完成三大平台集成並正式上線，初步建立由客戶服務入口、AI輔助分析、澳門法規資訊匹配、技術文件處理至註冊項目管理的數字化服務流程。相關集成提升了澳門醫療器械項目的資料流轉、客戶協作、文件管理及服務交付效率，並為後續擴展澳門藥物監督管理局申請資料管理、註冊及備案工具、上市後合規管理和企業級功能建立技術基礎。</p>
       </div>
-      <div class="p-8 bg-white/5 border border-white/10 rounded-[2rem]">
-        <div class="text-4xl md:text-5xl font-black text-[#C1A376] mb-3">10,000<span class="text-2xl">+</span></div>
+      <div class="p-8 bg-white/[0.07] backdrop-blur border border-white/15 rounded-[2rem] hover:bg-white/10 transition-all">
+        <div class="flex items-baseline gap-2 mb-3"><span class="text-4xl md:text-5xl font-black text-[#6FCDD8]">10,000</span><span class="text-2xl font-black text-[#6FCDD8]">+</span><i class="fa-solid fa-eye ml-3 text-[#6FCDD8]/50 text-xl"></i></div>
         <h3 class="font-black text-lg mb-3">次頁面瀏覽</h3>
-        <p class="text-xs md:text-sm text-slate-300 font-light leading-relaxed">濠概853平台及澳門醫療器械服務相關內容已累計錄得超過10,000次頁面瀏覽，反映市場對澳門醫療器械註冊、澳門醫療器械法規、AI醫療器械合規、澳門藥物監督管理局申請程序及科研成果轉化服務的關注。網站及平台內容亦成為客戶了解澳門市場准入要求、提交產品資料及啟動合作洽談的重要入口。</p>
+        <p class="text-xs md:text-sm text-blue-100/80 leading-relaxed">濠概853平台及澳門醫療器械服務相關內容已累計錄得超過10,000次頁面瀏覽，反映市場對澳門醫療器械註冊、澳門醫療器械法規、AI醫療器械合規、澳門藥物監督管理局申請程序及科研成果轉化服務的關注。網站及平台內容亦成為客戶了解澳門市場准入要求、提交產品資料及啟動合作洽談的重要入口。</p>
       </div>
-      <div class="p-8 bg-white/5 border border-white/10 rounded-[2rem]">
-        <div class="text-4xl md:text-5xl font-black text-[#C1A376] mb-3">5<span class="text-xl ml-2 font-bold">個</span></div>
+      <div class="p-8 bg-white/[0.07] backdrop-blur border border-white/15 rounded-[2rem] hover:bg-white/10 transition-all">
+        <div class="flex items-baseline gap-2 mb-3"><span class="text-4xl md:text-5xl font-black text-[#6FCDD8]">5</span><span class="text-lg font-black text-[#8FE0E8]">個</span><i class="fa-solid fa-folder-check ml-3 text-[#6FCDD8]/50 text-xl"></i></div>
         <h3 class="font-black text-lg mb-3">客戶項目完成驗證</h3>
-        <p class="text-xs md:text-sm text-slate-300 font-light leading-relaxed">濠概853已透過5個客戶項目，驗證由澳門醫療器械監管需求分析、方案設計、技術文件準備、AI平台應用至服務交付的業務流程。相關項目涵蓋產品分類評估、澳門註冊或備案路徑分析、AI技術文件、平台應用、科研成果轉化及澳門市場合作等場景，為濠概853自研系統的功能優化、服務標準化及後續規模化發展建立基礎。</p>
+        <p class="text-xs md:text-sm text-blue-100/80 leading-relaxed">濠概853已透過5個客戶項目，驗證由澳門醫療器械監管需求分析、方案設計、技術文件準備、AI平台應用至服務交付的業務流程。相關項目涵蓋產品分類評估、澳門註冊或備案路徑分析、AI技術文件、平台應用、科研成果轉化及澳門市場合作等場景，為濠概853自研系統的功能優化、服務標準化及後續規模化發展建立基礎。</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ======== FOOTER ======== -->
-<footer class="bg-[#2A2016] text-white pt-14 pb-10 border-t border-white/5">
+<footer class="bg-[#0B3D55] text-white pt-14 pb-10">
   <div class="max-w-6xl mx-auto px-6">
     <div class="flex flex-col md:flex-row justify-between gap-8 mb-10">
       <div class="max-w-md">
         <div class="flex items-center gap-3 mb-4">
-          <svg viewBox="0 0 100 120" class="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 10 H90 V80 C90 95 50 110 50 110 C50 110 10 95 10 80 V10Z" stroke="#C1A376" stroke-width="2"/>
-            <text x="50" y="38" fill="#C1A376" font-size="18" font-weight="bold" text-anchor="middle">853</text>
-          </svg>
-          <span class="font-black uppercase text-sm">濠概853 <span class="text-[#C1A376]">AI醫療器械合規平台</span></span>
+          <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#035DA8] to-[#37A7BB] text-white flex items-center justify-center shadow-md"><i class="fa-solid fa-heart-pulse"></i></span>
+          <span class="leading-tight">
+            <span class="block font-black text-sm">濠概853 <span class="text-[#6FCDD8]">AI醫療器械合規平台</span></span>
+            <span class="block text-[10px] text-blue-200/60 font-medium">醫療器械註冊 · 備案 · 市場准入</span>
+          </span>
         </div>
-        <p class="text-xs text-slate-400 leading-relaxed">濠概853自研平台屬於獨立的商業合規管理及技術支援系統，並非澳門藥物監督管理局的官方電子服務平台。醫療器械的最終分類、註冊、備案、准照及審批結果，均以澳門藥物監督管理局的正式要求及決定為準。</p>
+        <p class="text-xs text-blue-100/70 leading-relaxed">濠概853自研平台屬於獨立的商業合規管理及技術支援系統，並非澳門藥物監督管理局的官方電子服務平台。醫療器械的最終分類、註冊、備案、准照及審批結果，均以澳門藥物監督管理局的正式要求及決定為準。</p>
       </div>
       <div class="flex flex-col items-start md:items-end gap-3 text-sm">
-        <a href="#top" class="text-white/70 hover:text-[#C1A376]"><i class="fa-solid fa-arrow-up mr-2"></i>回到頁首</a>
-        <a href="./index.html" class="px-5 py-2 rounded-full bg-[#C1A376] text-[#2A2016] font-bold text-xs hover:opacity-90">前往 853 國際生物醫藥官網</a>
+        <a href="#top" class="text-blue-100/80 hover:text-[#6FCDD8]"><i class="fa-solid fa-arrow-up mr-2"></i>回到頁首</a>
+        <a href="./index.html" class="px-5 py-2 rounded-full bg-[#035DA8] text-white font-bold text-xs hover:bg-[#1A8FBF] shadow-md transition-all">前往 853 國際生物醫藥官網</a>
       </div>
     </div>
     <div class="border-t border-white/10 pt-6 text-center">
-      <p class="text-[10px] text-slate-500">© 2026 濠概853 · AI醫療器械合規平台 · All Rights Reserved.</p>
+      <p class="text-[10px] text-blue-200/50">© 2026 濠概853 · AI醫療器械合規平台 · All Rights Reserved.</p>
     </div>
   </div>
 </footer>
