@@ -10,14 +10,16 @@ Grounding (research, 2026-09):
 - Client reference corpus (ref/*.jpeg): medical blue #035DA8/#1367A7,
   petrol/teal #11596B, cyan #37A7BB, light-blue/white surfaces.
 
-Scoring model (all deterministic, offline, no RNG):
-  palette_alignment    30% - share of saturated color tokens in the
+Scoring model v2 (all deterministic, offline, no RNG):
+  palette_alignment    28% - share of saturated color tokens in the
                               clinical hue family (teal..indigo, 160-260 deg)
-  lightness_airiness   15% - share of light tokens (clinical white/tint surfaces)
-  saturation_restraint 15% - saturated tokens avoiding loud chroma (<= 0.72)
-  motif_density        20% - medical iconography/symbolism density
-  reference_affinity   20% - page palette proximity to ref/ image corpus
-
+  typography_signal    12% - clinical micro-labels, weight ramp, readable
+                              leading (sambasci.com typography conventions)
+  lightness_airiness   12% - share of light tokens (clinical surfaces)
+  saturation_restraint 12% - saturated tokens avoiding loud chroma (<= 0.72)
+  motif_density        18% - medical iconography/symbolism density
+  reference_affinity   18% - page palette proximity to ref/ corpus,
+                              CIEDE2000 (Sharma 2005) <= 20
 Emits METRIC lines (primary: medical_feel_score, 0-100).
 """
 
@@ -25,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import colorsys
+import math
 import json
 import re
 import sys
@@ -35,8 +38,11 @@ CLINICAL_HUE_HI = 260.0
 SATURATED_MIN = 0.18      # HSL S >= this counts as a saturated (accent) token
 NEON_CHROMA_MAX = 0.72    # chroma (vividness) above this = loud/neon
 LIGHT_MIN = 0.82          # L >= this counts as a light clinical surface
-AFFINITY_DIST = 90.0      # max RGB euclidean distance for a palette match
+AFFINITY_DELTA_E = 20.0   # CIEDE2000 perceptual threshold for a palette match
 MOTIF_TARGET = 25         # marker occurrences needed for full motif score
+EYEBROW_TARGET = 8        # uppercase tracked micro-labels for full score
+WEIGHT_RAMP_MIN = 4       # distinct font-weight utilities for full score
+LEADING_TARGET = 10       # leading-relaxed paragraphs for full score
 TW_CHROMA = {"50": 0.08, "100": 0.12, "200": 0.18, "300": 0.28,
              "400": 0.50, "500": 0.60, "600": 0.65, "700": 0.60,
              "800": 0.50, "900": 0.40, "950": 0.30}
@@ -91,6 +97,75 @@ def hex_to_rgb(token: str):
 
 def rgb_distance(a, b) -> float:
     return ((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2 + (a[2] - b[2]) ** 2) ** 0.5
+
+def rgb_to_lab(rgb):
+    """sRGB -> CIELAB (D65)."""
+    def f(c):
+        c = c / 255.0
+        return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+    r, g, b = (f(c) for c in rgb)
+    x = (r * 0.4124564 + g * 0.3575761 + b * 0.1804375) / 0.95047
+    y = (r * 0.2126729 + g * 0.7151522 + b * 0.0721750) / 1.00000
+    z = (r * 0.0193339 + g * 0.1191920 + b * 0.9503041) / 1.08883
+    def g_(t):
+        return t ** (1 / 3) if t > 0.008856 else (7.787 * t + 16 / 116)
+    fx, fy, fz = g_(x), g_(y), g_(z)
+    return (116 * fy - 16, 500 * (fx - fy), 200 * (fy - fz))
+
+
+def ciede2000(lab1, lab2) -> float:
+    """CIEDE2000 color difference (Sharma et al. 2005 formulation)."""
+    L1, a1, b1 = lab1
+    L2, a2, b2 = lab2
+    kL, kC, kH = 1.0, 1.0, 1.0
+    C1 = (a1 * a1 + b1 * b1) ** 0.5
+    C2 = (a2 * a2 + b2 * b2) ** 0.5
+    Cb = (C1 + C2) / 2
+    C7 = Cb ** 7
+    G = 0.5 * (1 - (C7 / (C7 + 25 ** 7)) ** 0.5)
+    a1p = (1 + G) * a1
+    a2p = (1 + G) * a2
+    C1p = (a1p * a1p + b1 * b1) ** 0.5
+    C2p = (a2p * a2p + b2 * b2) ** 0.5
+    h1p = math.degrees(math.atan2(b1, a1p)) % 360 if (a1p or b1) else 0.0
+    h2p = math.degrees(math.atan2(b2, a2p)) % 360 if (a2p or b2) else 0.0
+    dLp = L2 - L1
+    dCp = C2p - C1p
+    if C1p * C2p == 0:
+        dhp = 0.0
+    else:
+        dhp = h2p - h1p
+        if dhp > 180:
+            dhp -= 360
+        elif dhp < -180:
+            dhp += 360
+    dHp = 2 * (C1p * C2p) ** 0.5 * math.sin(math.radians(dhp) / 2)
+    Lbp = (L1 + L2) / 2
+    Cbp = (C1p + C2p) / 2
+    if C1p * C2p == 0:
+        hbp = h1p + h2p
+    else:
+        if abs(h1p - h2p) <= 180:
+            hbp = (h1p + h2p) / 2
+        elif (h1p + h2p) < 360:
+            hbp = (h1p + h2p + 360) / 2
+        else:
+            hbp = (h1p + h2p - 360) / 2
+    T = (1 - 0.17 * math.cos(math.radians(hbp - 30))
+         + 0.24 * math.cos(math.radians(2 * hbp))
+         + 0.32 * math.cos(math.radians(3 * hbp + 6))
+         - 0.20 * math.cos(math.radians(4 * hbp - 63)))
+    dtheta = 30 * math.exp(-(((hbp - 275) / 25) ** 2))
+    Cbp7 = Cbp ** 7
+    RC = 2 * (Cbp7 / (Cbp7 + 25 ** 7)) ** 0.5
+    SL = 1 + (0.015 * (Lbp - 50) ** 2) / (20 + (Lbp - 50) ** 2) ** 0.5
+    SC = 1 + 0.045 * Cbp
+    SH = 1 + 0.015 * Cbp * T
+    RT = -math.sin(math.radians(2 * dtheta)) * RC
+    dL = dLp / (kL * SL)
+    dC = dCp / (kC * SC)
+    dH = dHp / (kH * SH)
+    return (dL * dL + dC * dC + dH * dH + RT * dC * dH) ** 0.5
 
 
 # ---------------------------------------------------------------- tokens
@@ -171,7 +246,7 @@ def score(text: str, ref_dir: Path) -> dict:
         return {k: 0.0 for k in (
             "palette_alignment", "lightness_airiness",
             "saturation_restraint", "motif_density", "reference_affinity",
-            "medical_feel_score")}
+            "typography_signal", "medical_feel_score")}
 
     saturated = [t for t in tokens if t[2] >= SATURATED_MIN]
 
@@ -202,20 +277,36 @@ def score(text: str, ref_dir: Path) -> dict:
     clusters = reference_palette(ref_dir)
     hex_tokens = [t for t in tokens if t[4] is not None]
     if clusters and hex_tokens:
+        cluster_labs = [rgb_to_lab(c) for c in clusters]
+        token_labs = [(t[4], rgb_to_lab(t[4])) for t in hex_tokens]
         near = sum(
-            1 for t in hex_tokens
-            if min(rgb_distance(t[4], c) for c in clusters) <= AFFINITY_DIST
+            1 for rgb, lab in token_labs
+            if min(ciede2000(lab, cl) for cl in cluster_labs) <= AFFINITY_DELTA_E
         )
         metrics["reference_affinity"] = near / len(hex_tokens)
     else:
         metrics["reference_affinity"] = 0.0
 
+    # 6. typography signal: clinical micro-labels, weight ramp, readable leading
+    eyebrows = len(re.findall(r"uppercase[^>\"]*tracking-(?:widest|wider|\[0\.3em\])", text)) \
+        + len(re.findall(r"tracking-(?:widest|wider|\[0\.3em\])[^>\"]*uppercase", text))
+    eyebrow_score = min(1.0, eyebrows / EYEBROW_TARGET)
+    weights_used = sum(
+        1 for w in ("font-light", "font-medium", "font-semibold",
+                    "font-bold", "font-black", "font-extrabold")
+        if w in text
+    )
+    ramp_score = min(1.0, weights_used / WEIGHT_RAMP_MIN)
+    leading_score = min(1.0, text.count("leading-relaxed") / LEADING_TARGET)
+    metrics["typography_signal"] = (eyebrow_score + ramp_score + leading_score) / 3.0
+
     weights = {
-        "palette_alignment": 0.30,
-        "lightness_airiness": 0.15,
-        "saturation_restraint": 0.15,
-        "motif_density": 0.20,
-        "reference_affinity": 0.20,
+        "palette_alignment": 0.28,
+        "typography_signal": 0.12,
+        "lightness_airiness": 0.12,
+        "saturation_restraint": 0.12,
+        "motif_density": 0.18,
+        "reference_affinity": 0.18,
     }
     composite = sum(metrics[k] * w for k, w in weights.items())
     metrics["medical_feel_score"] = composite * 100.0
@@ -237,7 +328,8 @@ def main() -> int:
 
     print(f"METRIC medical_feel_score={metrics['medical_feel_score']:.2f}")
     for k in ("palette_alignment", "lightness_airiness",
-              "saturation_restraint", "motif_density", "reference_affinity"):
+              "saturation_restraint", "motif_density", "reference_affinity",
+              "typography_signal"):
         print(f"METRIC {k}={metrics[k]:.4f}")
     print(json.dumps(metrics, indent=2), file=sys.stderr)
     return 0
