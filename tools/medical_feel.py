@@ -291,7 +291,8 @@ TW_TOKEN_HEX = {
     "cyan-700": "0E7490", "cyan-800": "155E75", "cyan-900": "164E63",
     "white": "FFFFFF", "black": "000000",
 }
-TW_SIZE_PX = {"xs": 12, "sm": 14, "base": 16, "lg": 18, "xl": 20, "2xl": 24}
+TW_SIZE_PX = {"xs": 12, "sm": 14, "base": 16, "lg": 18, "xl": 20, "2xl": 24,
+              "3xl": 30, "4xl": 36, "5xl": 48, "6xl": 60}
 VOID_TAGS = {"br", "img", "hr", "input", "meta", "link", "source", "path",
              "circle", "line", "polyline", "rect"}
 
@@ -338,6 +339,19 @@ class _ContrastParser(HTMLParser):
         if "bg-gradient" in classes and grad[0] and grad[1]:
             a, b = _hex_tuple(grad[0].group(1)), _hex_tuple(grad[1].group(1))
             return "".join(f"{(x + y) // 2:02X}" for x, y in zip(a, b))
+        if "bg-gradient" in classes:
+            named = []
+            for stop in ("from", "to"):
+                m = re.search(rf"{stop}-(\w[\w-]*\d{{2,3}}|\w+)(?![\w/\[])", classes)
+                if m and m.group(1) in TW_TOKEN_HEX:
+                    named.append(TW_TOKEN_HEX[m.group(1)])
+                else:
+                    named.append(None)
+            if named[0] and named[1]:
+                a, b = _hex_tuple(named[0]), _hex_tuple(named[1])
+                return "".join(f"{(x + y) // 2:02X}" for x, y in zip(a, b))
+            if named[0]:
+                return named[0]
         if "bg-gradient" in classes and grad[0]:
             return grad[0].group(1).upper()
         for tok in classes.split():
@@ -364,7 +378,10 @@ class _ContrastParser(HTMLParser):
         fg_alpha = 1.0
         size = parent["size"]
         bold = parent["bold"]
-        for tok in classes.split():
+        for raw_tok in classes.split():
+            # responsive variants (sm:/md:/lg:) apply at desktop widths —
+            # score against the desktop-applied utility
+            tok = raw_tok.split(":", 1)[1] if ":" in raw_tok else raw_tok
             key = tok[5:] if tok.startswith("text-") else ""
             if key in TW_TOKEN_HEX:
                 fg = TW_TOKEN_HEX[key]
