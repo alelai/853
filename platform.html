@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700;900&display=swap" rel="stylesheet" />
 <style>
   :root { --ink:#12324A; --blue:#035DA8; --deep:#0B4A7F; --petrol:#11596B; --cyan:#37A7BB; --line:#D8E4EC; }
@@ -24,6 +25,46 @@
   .hairline-t { border-top:1px solid var(--line); }
   .kicker { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; font-weight:700; color:var(--blue); }
   .lead-relaxed { line-height:1.8; }
+  ::selection { background:#D3E9F5; color:rgb(11,74,127); }
+  :focus-visible { outline:2px solid rgb(55,167,187); outline-offset:2px; }
+  /* reading progress */
+  #progress { transition:width .1s linear; }
+  /* scroll-spy states (plain CSS — no Tailwind JIT dependency) */
+  a.nav-active { color:rgb(3,93,168) !important; border-color:rgb(55,167,187) !important; }
+  a.chip-active { background:#EFF7FC !important; color:rgb(3,93,168) !important; }
+  /* reveals — only active when JS is present AND IO supported */
+  html.js .reveal { opacity:0; transform:translateY(12px); transition:opacity .5s ease-out, transform .5s ease-out; }
+  html.js .reveal.is-visible { opacity:1; transform:none; }
+  /* ECG draw animation (hero only) */
+  .ecg-animate polyline { stroke-dasharray:100; stroke-dashoffset:100; animation:ecg-draw 6s linear infinite; }
+  @keyframes ecg-draw { to { stroke-dashoffset:0; } }
+  /* duotone → color on hover/focus-within */
+  .duotone img { transition:filter .4s ease; }
+  .duotone:hover img, .duotone:focus-within img { filter:none; mix-blend-mode:normal; }
+  /* list hover */
+  .hairlist li { transition:background-color .2s ease; }
+  .hairlist li:hover { background-color:#F5FAFD; }
+  .hairlist li:hover .num { color:rgb(3,93,168); }
+  /* stamp */
+  .stamp { background:rgba(255,255,255,0.92); box-shadow:0 2px 10px rgba(3,93,168,0.15); }
+  /* back-to-top */
+  #toTop.show { opacity:1; pointer-events:auto; }
+  /* reduced motion: kill all motion AND pre-reveal hiding */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation:none !important; transition:none !important; }
+    html { scroll-behavior:auto; }
+    html.js .reveal { opacity:1 !important; transform:none !important; }
+  }
+  /* print: regulatory audience prints this page */
+  @media print {
+    nav, #toTop, #progress { display:none !important; }
+    .duotone { background:#fff; }
+    .duotone img { filter:none; mix-blend-mode:normal; }
+    #validation, #validation * { background:#fff !important; color:rgb(18,50,74) !important; }
+    #validation .kicker { color:rgb(3,93,168) !important; }
+    section, figure, li { break-inside:avoid; }
+    html.js .reveal { opacity:1 !important; transform:none !important; }
+  }
 </style>
 </head>
 <body>
@@ -52,6 +93,7 @@
     </div>
     <a href="./index.html" class="lg:hidden px-3 py-1.5 bg-[#035DA8] text-white text-xs font-bold">853 官網</a>
   </div>
+  <div id="progress" aria-hidden="true" class="h-[3px] w-0 bg-gradient-to-r from-[#37A7BB] to-[#035DA8]"></div>
   <div class="lg:hidden border-t border-[#D8E4EC] overflow-x-auto">
     <div class="flex items-center gap-1 px-4 py-2 w-max">
       <a href="#about" class="px-3 py-1.5 rounded-full text-[12px] font-semibold text-slate-600 whitespace-nowrap hover:text-[#035DA8] hover:bg-[#EFF7FC]">平台簡介</a>
@@ -71,7 +113,7 @@
 <header id="top" class="pt-24 md:pt-28 bg-white">
   <div class="max-w-6xl mx-auto px-6">
     <div class="grid md:grid-cols-12 gap-10 items-end pb-10 md:pb-14">
-      <div class="md:col-span-7">
+      <div class="md:col-span-7 reveal">
         <div class="flex items-center gap-3 mb-6">
           <span class="kicker uppercase tracking-[0.3em]">Hou Pou 853 · SaaS Platform</span>
           <span class="h-px flex-1 bg-[#D8E4EC]"></span>
@@ -90,14 +132,25 @@
       </div>
       <div class="md:col-span-5">
         <figure class="duotone relative">
-          <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1000" alt="AI醫療器械合規實驗室" class="w-full h-64 md:h-80 object-cover" onerror="this.parentElement.style.display='none'"/>
+          <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1000"
+            srcset="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=600 600w,
+                    https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1000 1000w,
+                    https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1600 1600w"
+            sizes="(min-width:1024px) 40vw, 100vw" alt="AI醫療器械合規實驗室" class="w-full h-64 md:h-80 object-cover" onerror="this.parentElement.style.display='none'"/>
           <figcaption class="absolute bottom-0 inset-x-0 flex items-center justify-between px-4 py-2.5 bg-[#0B4A7F]/95 text-white text-[11px]">
             <span class="font-semibold tracking-wide">第12/2025號法律 · 合規基礎</span>
             <i class="fa-solid fa-shield-heart text-[#6FCDD8]"></i>
           </figcaption>
+          <div aria-hidden="true" class="stamp absolute -top-4 -right-3 md:-right-4 w-24 h-24 md:w-28 md:h-28 rounded-full border-[2.5px] border-[#035DA8]/80 flex items-center justify-center select-none" style="transform:rotate(-6deg)">
+            <div class="absolute inset-[5px] rounded-full border border-[#035DA8]/60"></div>
+            <div class="text-center leading-tight">
+              <div class="serif text-[13px] md:text-[15px] font-black text-[#0B4A7F]">澳門合規</div>
+              <div class="text-[7px] md:text-[8px] font-bold tracking-[0.22em] text-[#0B4A7F]/80">MACAU<br />COMPLIANCE</div>
+            </div>
+          </div>
         </figure>
-        <svg class="w-full h-10 mt-4 opacity-30" viewBox="0 0 600 40" fill="none" preserveAspectRatio="none" aria-hidden="true">
-          <polyline points="0,20 120,20 135,20 141,6 147,34 153,20 260,20 275,20 281,10 287,30 293,20 420,20 435,20 441,8 447,32 453,20 600,20" stroke="#37A7BB" stroke-width="2" stroke-linejoin="round"/>
+        <svg class="ecg-animate w-full h-10 mt-4 opacity-30" viewBox="0 0 600 40" fill="none" preserveAspectRatio="none" aria-hidden="true">
+          <polyline pathLength="100" points="0,20 120,20 135,20 141,6 147,34 153,20 260,20 275,20 281,10 287,30 293,20 420,20 435,20 441,8 447,32 453,20 600,20" stroke="#37A7BB" stroke-width="2" stroke-linejoin="round"/>
         </svg>
       </div>
     </div>
@@ -115,7 +168,7 @@
       <div aria-hidden="true" class="serif text-5xl md:text-7xl font-black text-[#E3F0F9] leading-none select-none">01</div>
       <div class="vtext serif text-sm font-bold text-[#035DA8] tracking-[0.4em] pt-1">與我們合作</div>
     </aside>
-    <div class="md:col-span-10">
+    <div class="md:col-span-10 reveal">
       <div class="kicker uppercase tracking-[0.3em] mb-3">Cooperation</div>
       <h2 class="serif text-2xl md:text-3xl font-black text-[#0B4A7F] mb-4">與我們合作</h2>
       <p class="text-base font-semibold text-[#0E7490] mb-8">靈活合作模式，連接全球技術、澳門合規與市場應用</p>
@@ -126,7 +179,7 @@
       </div>
       <div id="models" class="hairline-t">
         <div class="kicker uppercase tracking-[0.3em] py-4">合作模式 · Cooperation Models</div>
-        <ul class="grid sm:grid-cols-2 gap-x-10">
+        <ul class="hairlist grid sm:grid-cols-2 gap-x-10">
           <li class="flex items-baseline gap-3 py-3.5 border-b border-[#EAF2F8] text-sm font-semibold text-[#12324A]"><i class="fa-solid fa-laptop-medical text-[#035DA8] text-xs"></i>濠概853自研AI賦能SaaS系統</li>
           <li class="flex items-baseline gap-3 py-3.5 border-b border-[#EAF2F8] text-sm font-semibold text-[#12324A]"><i class="fa-solid fa-file-medical text-[#035DA8] text-xs"></i>澳門醫療器械註冊及合規服務</li>
           <li class="flex items-baseline gap-3 py-3.5 border-b border-[#EAF2F8] text-sm font-semibold text-[#12324A]"><i class="fa-solid fa-microscope text-[#035DA8] text-xs"></i>AI-CRO專業服務</li>
@@ -147,7 +200,7 @@
       <div aria-hidden="true" class="serif text-5xl md:text-7xl font-black text-[#D9EAF6] leading-none select-none">02</div>
       <div class="vtext serif text-sm font-bold text-[#035DA8] tracking-[0.4em] pt-1">合規系統</div>
     </aside>
-    <div class="md:col-span-10">
+    <div class="md:col-span-10 reveal">
       <div class="grid lg:grid-cols-2 gap-10 items-start">
         <div>
           <div class="kicker uppercase tracking-[0.3em] mb-3">SaaS Platform</div>
@@ -160,29 +213,33 @@
           </div>
         </div>
         <figure class="duotone">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" alt="醫療器械合規數據平台" loading="lazy" class="w-full h-56 lg:h-72 object-cover" onerror="this.parentElement.style.display='none'"/>
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000"
+            srcset="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600 600w,
+                    https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000 1000w,
+                    https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600 1600w"
+            sizes="(min-width:1024px) 40vw, 100vw" alt="醫療器械合規數據平台" loading="lazy" class="w-full h-56 lg:h-72 object-cover" onerror="this.parentElement.style.display='none'"/>
         </figure>
       </div>
       <div class="hairline-t mt-10">
         <div class="kicker uppercase tracking-[0.3em] py-4"><i class="fa-solid fa-laptop-medical text-[#37A7BB] mr-2" aria-hidden="true"></i>平台功能 · Platform Capabilities</div>
-        <ol class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 text-[13px] md:text-sm text-slate-700">
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">01</span><span class="leading-relaxed">澳門醫療器械產品資料建檔</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">02</span><span class="leading-relaxed">產品預期用途及監管屬性初步分析</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">03</span><span class="leading-relaxed">第I類、第IIa類、第IIb類及第III類產品分類初步評估</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">04</span><span class="leading-relaxed">澳門註冊、備案及市場准入路徑建議</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">05</span><span class="leading-relaxed">澳門藥物監督管理局申請要求匹配</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">06</span><span class="leading-relaxed">註冊或備案文件清單生成</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">07</span><span class="leading-relaxed">AI輔助技術文件整理及內容提取</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">08</span><span class="leading-relaxed">文件完整性及一致性檢查</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">09</span><span class="leading-relaxed">臨床評價、風險管理及檢驗資料管理</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">10</span><span class="leading-relaxed">標籤及使用說明書資料檢查</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">11</span><span class="leading-relaxed">境外註冊及銷售證明資料管理</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">12</span><span class="leading-relaxed">任務分配與澳門申請進度管理</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">13</span><span class="leading-relaxed">軟件及AI算法版本記錄</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">14</span><span class="leading-relaxed">產品變更、註冊續期及合規提醒</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">15</span><span class="leading-relaxed">醫療器械上市後不良事件資料管理</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">16</span><span class="leading-relaxed">澳門醫療器械法規及技術要求知識庫</span></li>
-          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right">17</span><span class="leading-relaxed">「港澳藥械通」相關政策資料及項目記錄管理</span></li>
+        <ol class="hairlist grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 text-[13px] md:text-sm text-slate-700">
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">01</span><span class="leading-relaxed">澳門醫療器械產品資料建檔</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">02</span><span class="leading-relaxed">產品預期用途及監管屬性初步分析</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">03</span><span class="leading-relaxed">第I類、第IIa類、第IIb類及第III類產品分類初步評估</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">04</span><span class="leading-relaxed">澳門註冊、備案及市場准入路徑建議</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">05</span><span class="leading-relaxed">澳門藥物監督管理局申請要求匹配</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">06</span><span class="leading-relaxed">註冊或備案文件清單生成</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">07</span><span class="leading-relaxed">AI輔助技術文件整理及內容提取</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">08</span><span class="leading-relaxed">文件完整性及一致性檢查</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">09</span><span class="leading-relaxed">臨床評價、風險管理及檢驗資料管理</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">10</span><span class="leading-relaxed">標籤及使用說明書資料檢查</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">11</span><span class="leading-relaxed">境外註冊及銷售證明資料管理</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">12</span><span class="leading-relaxed">任務分配與澳門申請進度管理</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">13</span><span class="leading-relaxed">軟件及AI算法版本記錄</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">14</span><span class="leading-relaxed">產品變更、註冊續期及合規提醒</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">15</span><span class="leading-relaxed">醫療器械上市後不良事件資料管理</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">16</span><span class="leading-relaxed">澳門醫療器械法規及技術要求知識庫</span></li>
+          <li class="flex gap-3 py-3 border-b border-[#E2EEF7]"><span class="serif text-[#11596B] font-bold shrink-0 w-6 text-right num">17</span><span class="leading-relaxed">「港澳藥械通」相關政策資料及項目記錄管理</span></li>
         </ol>
       </div>
       <div class="mt-10 border-l-[3px] border-[#035DA8] bg-white p-6 md:p-8">
@@ -200,7 +257,7 @@
       <div aria-hidden="true" class="serif text-5xl md:text-7xl font-black text-[#E3F0F9] leading-none select-none">03</div>
       <div class="vtext serif text-sm font-bold text-[#035DA8] tracking-[0.4em] pt-1">專業服務</div>
     </aside>
-    <div class="md:col-span-10">
+    <div class="md:col-span-10 reveal">
       <div class="kicker uppercase tracking-[0.3em] mb-3">Professional Services</div>
       <h2 class="serif text-2xl md:text-3xl font-black text-[#0B4A7F] mb-4">澳門醫療器械註冊及合規專業服務</h2>
       <div class="space-y-4 text-sm md:text-[15px] text-slate-600 leading-relaxed max-w-3xl mb-10">
@@ -247,7 +304,7 @@
 
       <div class="hairline-t">
         <div class="kicker uppercase tracking-[0.3em] py-4"><i class="fa-solid fa-user-doctor text-[#37A7BB] mr-2" aria-hidden="true"></i>服務可包括 · Scope of Services</div>
-        <ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 text-[13px] md:text-sm text-slate-700">
+        <ul class="hairlist grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 text-[13px] md:text-sm text-slate-700">
           <li class="py-3 border-b border-[#EAF2F8] leading-relaxed">澳門醫療器械監管屬性分析</li>
           <li class="py-3 border-b border-[#EAF2F8] leading-relaxed">澳門醫療器械分類申請支援</li>
           <li class="py-3 border-b border-[#EAF2F8] leading-relaxed">第IIb類及第III類醫療器械註冊支援</li>
@@ -277,7 +334,7 @@
       <div aria-hidden="true" class="serif text-5xl md:text-7xl font-black text-[#D9EAF6] leading-none select-none">04</div>
       <div class="vtext serif text-sm font-bold text-[#035DA8] tracking-[0.4em] pt-1">AI-CRO</div>
     </aside>
-    <div class="md:col-span-10">
+    <div class="md:col-span-10 reveal">
       <div class="grid lg:grid-cols-2 gap-10 items-start">
         <div>
           <div class="kicker uppercase tracking-[0.3em] mb-3">AI-CRO Services</div>
@@ -289,12 +346,16 @@
           </div>
         </div>
         <figure class="duotone">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000" alt="AI醫療技術研發" loading="lazy" class="w-full h-56 lg:h-72 object-cover" onerror="this.parentElement.style.display='none'"/>
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000"
+            srcset="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=600 600w,
+                    https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000 1000w,
+                    https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1600 1600w"
+            sizes="(min-width:1024px) 40vw, 100vw" alt="AI醫療技術研發" loading="lazy" class="w-full h-56 lg:h-72 object-cover" onerror="this.parentElement.style.display='none'"/>
         </figure>
       </div>
       <div class="hairline-t mt-10">
         <div class="kicker uppercase tracking-[0.3em] py-4"><i class="fa-solid fa-file-medical text-[#37A7BB] mr-2" aria-hidden="true"></i>服務內容可包括 · Scope</div>
-        <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 text-[13px] md:text-sm text-slate-700">
+        <ul class="hairlist grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 text-[13px] md:text-sm text-slate-700">
           <li class="py-3 border-b border-[#E2EEF7] leading-relaxed">產品預期用途及澳門監管屬性分析</li>
           <li class="py-3 border-b border-[#E2EEF7] leading-relaxed">澳門醫療器械分類及申請路徑規劃</li>
           <li class="py-3 border-b border-[#E2EEF7] leading-relaxed">獨立軟件是否屬於醫療器械的初步評估</li>
@@ -324,7 +385,7 @@
       <div aria-hidden="true" class="serif text-5xl md:text-7xl font-black text-[#E3F0F9] leading-none select-none">05</div>
       <div class="vtext serif text-sm font-bold text-[#035DA8] tracking-[0.4em] pt-1">聯合開發</div>
     </aside>
-    <div class="md:col-span-10">
+    <div class="md:col-span-10 reveal">
       <div class="kicker uppercase tracking-[0.3em] mb-3">Joint Development</div>
       <h2 class="serif text-2xl md:text-3xl font-black text-[#0B4A7F] mb-4">聯合開發</h2>
       <p class="text-base font-semibold text-[#0E7490] mb-8">將澳門醫療器械法規提前納入產品研發</p>
@@ -335,7 +396,7 @@
       </div>
       <div class="hairline-t">
         <div class="kicker uppercase tracking-[0.3em] py-4"><i class="fa-solid fa-dna text-[#37A7BB] mr-2" aria-hidden="true"></i>聯合開發可涵蓋 · Coverage</div>
-        <ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 text-[13px] md:text-sm text-slate-700">
+        <ul class="hairlist grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 text-[13px] md:text-sm text-slate-700">
           <li class="py-3 border-b border-[#EAF2F8] leading-relaxed">澳門醫療需求及產品定位</li>
           <li class="py-3 border-b border-[#EAF2F8] leading-relaxed">預期用途及目標人群定義</li>
           <li class="py-3 border-b border-[#EAF2F8] leading-relaxed">醫療器械監管屬性及分類分析</li>
@@ -362,7 +423,7 @@
       <div aria-hidden="true" class="serif text-5xl md:text-7xl font-black text-[#D9EAF6] leading-none select-none">06</div>
       <div class="vtext serif text-sm font-bold text-[#035DA8] tracking-[0.4em] pt-1">私有部署</div>
     </aside>
-    <div class="md:col-span-10">
+    <div class="md:col-span-10 reveal">
       <div class="grid lg:grid-cols-2 gap-10 items-start">
         <div>
           <div class="kicker uppercase tracking-[0.3em] mb-3">On-Premise</div>
@@ -374,12 +435,16 @@
           </div>
         </div>
         <figure class="duotone">
-          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1000" alt="私有化部署數據中心" loading="lazy" class="w-full h-56 lg:h-72 object-cover" onerror="this.parentElement.style.display='none'"/>
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1000"
+            srcset="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600 600w,
+                    https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1000 1000w,
+                    https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600 1600w"
+            sizes="(min-width:1024px) 40vw, 100vw" alt="私有化部署數據中心" loading="lazy" class="w-full h-56 lg:h-72 object-cover" onerror="this.parentElement.style.display='none'"/>
         </figure>
       </div>
       <div class="hairline-t mt-10">
         <div class="kicker uppercase tracking-[0.3em] py-4"><i class="fa-solid fa-user-shield text-[#37A7BB] mr-2" aria-hidden="true"></i>私有化部署可支援 · Capabilities</div>
-        <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 text-[13px] md:text-sm text-slate-700">
+        <ul class="hairlist grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 text-[13px] md:text-sm text-slate-700">
           <li class="py-3 border-b border-[#E2EEF7] leading-relaxed">濠概853自研系統獨立部署</li>
           <li class="py-3 border-b border-[#E2EEF7] leading-relaxed">澳門醫療器械法規專屬知識庫</li>
           <li class="py-3 border-b border-[#E2EEF7] leading-relaxed">澳門藥物監督管理局申請要求管理</li>
@@ -408,7 +473,7 @@
       <div aria-hidden="true" class="serif text-5xl md:text-7xl font-black text-[#E3F0F9] leading-none select-none">07</div>
       <div class="vtext serif text-sm font-bold text-[#035DA8] tracking-[0.4em] pt-1">服務覆蓋</div>
     </aside>
-    <div class="md:col-span-10">
+    <div class="md:col-span-10 reveal">
       <div class="kicker uppercase tracking-[0.3em] mb-3">Coverage</div>
       <h2 class="serif text-2xl md:text-3xl font-black text-[#0B4A7F] mb-4">服務覆蓋範圍</h2>
       <p class="text-base font-semibold text-[#0E7490] mb-8">覆蓋多類產品、不同發展階段及澳門完整合規週期</p>
@@ -469,7 +534,7 @@
         <div aria-hidden="true" class="serif text-5xl md:text-7xl font-black text-white/15 leading-none select-none">08</div>
         <div class="vtext serif text-sm font-bold text-[#6FCDD8] tracking-[0.4em] pt-1">商業驗證</div>
       </aside>
-      <div class="md:col-span-10">
+      <div class="md:col-span-10 reveal">
         <div class="kicker uppercase tracking-[0.3em] text-[#6FCDD8] mb-3"><i class="fa-solid fa-user-doctor mr-2" aria-hidden="true"></i>Commercial Validation</div>
         <h2 class="serif text-2xl md:text-3xl font-black mb-4">商業驗證</h2>
         <p class="text-base font-semibold text-[#8FE0E8] mb-8">濠概853自研平台已完成初步市場及項目驗證</p>
@@ -480,22 +545,22 @@
         </div>
         <div class="grid md:grid-cols-2 gap-x-12 gap-y-10">
           <div class="border-t border-white/25 pt-6">
-            <div class="serif text-5xl font-black text-[#6FCDD8] leading-none mb-3">300<span class="text-2xl align-top">+</span></div>
+            <div class="serif text-5xl font-black tabular-nums text-[#6FCDD8] leading-none mb-3">300<span class="text-2xl align-top">+</span></div>
             <div class="serif text-lg font-bold mb-2.5">名用戶參與平台驗證</div>
             <p class="text-xs md:text-[13px] text-blue-100/80 leading-relaxed">濠概853自研平台及相關服務已累計獲得超過300名用戶參與使用、測試、諮詢或需求驗證，涵蓋醫療器械、科技研發、AI醫療、數字醫療、科研轉化及專業服務等不同領域。相關用戶反饋已應用於澳門醫療器械分類分析、法規匹配、文件管理、項目協作及平台操作流程的持續優化。</p>
           </div>
           <div class="border-t border-white/25 pt-6">
-            <div class="serif text-5xl font-black text-[#6FCDD8] leading-none mb-3">3<span class="text-lg ml-1.5">大平台</span></div>
+            <div class="serif text-5xl font-black tabular-nums text-[#6FCDD8] leading-none mb-3">3<span class="text-lg ml-1.5">大平台</span></div>
             <div class="serif text-lg font-bold mb-2.5">集成已上線</div>
             <p class="text-xs md:text-[13px] text-blue-100/80 leading-relaxed">濠概853已完成三大平台集成並正式上線，初步建立由客戶服務入口、AI輔助分析、澳門法規資訊匹配、技術文件處理至註冊項目管理的數字化服務流程。相關集成提升了澳門醫療器械項目的資料流轉、客戶協作、文件管理及服務交付效率，並為後續擴展澳門藥物監督管理局申請資料管理、註冊及備案工具、上市後合規管理和企業級功能建立技術基礎。</p>
           </div>
           <div class="border-t border-white/25 pt-6">
-            <div class="serif text-5xl font-black text-[#6FCDD8] leading-none mb-3">10,000<span class="text-2xl align-top">+</span></div>
+            <div class="serif text-5xl font-black tabular-nums text-[#6FCDD8] leading-none mb-3">10,000<span class="text-2xl align-top">+</span></div>
             <div class="serif text-lg font-bold mb-2.5">次頁面瀏覽</div>
             <p class="text-xs md:text-[13px] text-blue-100/80 leading-relaxed">濠概853平台及澳門醫療器械服務相關內容已累計錄得超過10,000次頁面瀏覽，反映市場對澳門醫療器械註冊、澳門醫療器械法規、AI醫療器械合規、澳門藥物監督管理局申請程序及科研成果轉化服務的關注。網站及平台內容亦成為客戶了解澳門市場准入要求、提交產品資料及啟動合作洽談的重要入口。</p>
           </div>
           <div class="border-t border-white/25 pt-6">
-            <div class="serif text-5xl font-black text-[#6FCDD8] leading-none mb-3">5<span class="text-lg ml-1.5">個</span></div>
+            <div class="serif text-5xl font-black tabular-nums text-[#6FCDD8] leading-none mb-3">5<span class="text-lg ml-1.5">個</span></div>
             <div class="serif text-lg font-bold mb-2.5">客戶項目完成驗證</div>
             <p class="text-xs md:text-[13px] text-blue-100/80 leading-relaxed">濠概853已透過5個客戶項目，驗證由澳門醫療器械監管需求分析、方案設計、技術文件準備、AI平台應用至服務交付的業務流程。相關項目涵蓋產品分類評估、澳門註冊或備案路徑分析、AI技術文件、平台應用、科研成果轉化及澳門市場合作等場景，為濠概853自研系統的功能優化、服務標準化及後續規模化發展建立基礎。</p>
           </div>
@@ -525,5 +590,52 @@
   </div>
 </footer>
 
+<button id="toTop" aria-label="回到頁首" class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-white ring-1 ring-[#D8E4EC] shadow-lg text-[#035DA8] opacity-0 pointer-events-none transition-opacity duration-300">
+  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
+<script>
+(function () {
+  var d = document, root = d.documentElement;
+  var bar = d.getElementById('progress');
+  function prog() {
+    var h = root.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', prog, { passive: true });
+  prog();
+  var top = d.getElementById('toTop');
+  window.addEventListener('scroll', function () {
+    top.classList.toggle('show', window.scrollY > 600);
+  }, { passive: true });
+  top.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  if (!('IntersectionObserver' in window)) return; // below-fold stays visible without IO
+  root.classList.add('js');
+  var byId = {};
+  d.querySelectorAll('nav a[href^="#"]').forEach(function (a) {
+    var id = a.getAttribute('href').slice(1);
+    (byId[id] = byId[id] || []).push(a);
+  });
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      (byId[e.target.id] || []).forEach(function (a) {
+        a.classList.toggle('nav-active', e.isIntersecting);
+        if (a.closest('.overflow-x-auto')) a.classList.toggle('chip-active', e.isIntersecting);
+      });
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  Object.keys(byId).forEach(function (id) {
+    var el = d.getElementById(id);
+    if (el) spy.observe(el);
+  });
+  var rev = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-visible'); rev.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  d.querySelectorAll('.reveal').forEach(function (el) { rev.observe(el); });
+})();
+</script>
 </body>
 </html>
