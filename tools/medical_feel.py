@@ -328,6 +328,7 @@ class _ContrastParser(HTMLParser):
         self.stack = [ {"fg": "000000", "bg": "FFFFFF",
                         "size": 16.0, "bold": False} ]
         self.svg_depth = 0
+        self.hidden_depth = 0
         self.samples = []   # (ratio, required, text, fg, bg)
 
     def _own_bg(self, classes):
@@ -367,11 +368,14 @@ class _ContrastParser(HTMLParser):
         return None
 
     def handle_starttag(self, tag, attrs):
+        attr_d = dict(attrs)
         if tag == "svg":
             self.svg_depth += 1
-        if tag in VOID_TAGS or tag == "svg":
+        elif attr_d.get("aria-hidden") == "true":
+            self.hidden_depth += 1
+        if tag in VOID_TAGS or tag == "svg" or self.hidden_depth:
             return
-        classes = dict(attrs).get("class", "") or ""
+        classes = attr_d.get("class", "") or ""
         parent = self.stack[-1]
         bg = self._own_bg(classes) or parent["bg"]
         fg = parent["fg"]
@@ -413,11 +417,14 @@ class _ContrastParser(HTMLParser):
             return
         if tag in VOID_TAGS or tag == "svg":
             return
+        if self.hidden_depth:
+            self.hidden_depth -= 1
+            return
         if len(self.stack) > 1:
             self.stack.pop()
 
     def handle_data(self, data):
-        if self.svg_depth or not data.strip():
+        if self.svg_depth or self.hidden_depth or not data.strip():
             return
         ctx = self.stack[-1]
         fg = _blend(_hex_tuple(ctx["fg"]), _hex_tuple(ctx["bg"]),
