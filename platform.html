@@ -5,11 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>濠概853自研AI醫療器械合規平台 | 面向澳門醫療器械註冊、備案及市場准入的AI賦能SaaS系統</title>
 <meta name="description" content="濠概853自主研發面向澳門醫療器械監管及市場准入場景的AI賦能SaaS系統，協助全球醫療器械製造商、科技企業、科研團隊及數字醫療項目進入澳門市場。" />
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<meta name="theme-color" content="#035DA8" />
+<meta name="color-scheme" content="light" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="濠概853" />
+<meta property="og:title" content="濠概853自研AI醫療器械合規平台 | 面向澳門醫療器械註冊、備案及市場准入的AI賦能SaaS系統" />
+<meta property="og:description" content="濠概853自主研發面向澳門醫療器械監管及市場准入場景的AI賦能SaaS系統，協助全球醫療器械製造商、科技企業、科研團隊及數字醫療項目進入澳門市場。" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1200" />
+<meta property="og:locale" content="zh_MO" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="濠概853自研AI醫療器械合規平台" />
+<meta name="twitter:description" content="面向澳門醫療器械註冊、備案及市場准入的AI賦能SaaS系統" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "#org", "name": "濠概853",
+      "slogan": "面向澳門醫療器械註冊、備案及市場准入的AI賦能SaaS系統" },
+    { "@type": "WebPage", "name": "濠概853自研AI醫療器械合規平台", "inLanguage": "zh-Hant",
+      "isPartOf": { "@id": "#org" },
+      "about": { "@type": "SoftwareApplication", "name": "濠概853 AI醫療器械合規平台",
+                 "applicationCategory": "BusinessApplication", "operatingSystem": "Web",
+                 "inLanguage": "zh-Hant" } }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/tailwind.css" />
+<link rel="stylesheet" href="/assets/icons.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preload" as="image" href="/assets/img/hero-1000.jpg" imagesrcset="/assets/img/hero-600.jpg 600w, /assets/img/hero-1000.jpg 1000w, /assets/img/hero-1600.jpg 1600w" imagesizes="(min-width:1024px) 40vw, 100vw" fetchpriority="high" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700;900&display=swap" rel="stylesheet" />
 <style>
   :root { --ink:#12324A; --blue:#035DA8; --deep:#0B4A7F; --petrol:#11596B; --cyan:#37A7BB; --line:#D8E4EC; }
@@ -65,9 +91,13 @@
     section, figure, li { break-inside:avoid; }
     html.js .reveal { opacity:1 !important; transform:none !important; }
   }
+  /* skip link */
+  .skip-link { position:fixed; top:8px; left:8px; z-index:60; transform:translateY(-200%); background:rgb(255,255,255); color:var(--blue); border:1px solid var(--line); padding:.6rem 1rem; font-size:13px; font-weight:700; box-shadow:0 2px 10px rgba(3,93,168,0.15); }
+  .skip-link:focus { transform:none; }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">跳至主要內容</a>
 
 <!-- ======== MASTHEAD ======== -->
 <nav class="fixed w-full z-50 bg-white/95 backdrop-blur border-b border-[#D8E4EC]">
@@ -108,6 +138,7 @@
     </div>
   </div>
 </nav>
+<main id="main">
 
 <!-- ======== HERO ======== -->
 <header id="top" class="pt-24 md:pt-28 bg-white">
@@ -132,10 +163,10 @@
       </div>
       <div class="md:col-span-5">
         <figure class="duotone relative">
-          <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1000"
-            srcset="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=600 600w,
-                    https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1000 1000w,
-                    https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1600 1600w"
+          <img fetchpriority="high" decoding="async" src="/assets/img/hero-1000.jpg"
+            srcset="/assets/img/hero-600.jpg 600w,
+                    /assets/img/hero-1000.jpg 1000w,
+                    /assets/img/hero-1600.jpg 1600w"
             sizes="(min-width:1024px) 40vw, 100vw" alt="AI醫療器械合規實驗室" class="w-full h-64 md:h-80 object-cover" onerror="this.parentElement.style.display='none'"/>
           <figcaption class="absolute bottom-0 inset-x-0 flex items-center justify-between px-4 py-2.5 bg-[#0B4A7F]/95 text-white text-[11px]">
             <span class="font-semibold tracking-wide">第12/2025號法律 · 合規基礎</span>
@@ -213,10 +244,10 @@
           </div>
         </div>
         <figure class="duotone">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000"
-            srcset="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600 600w,
-                    https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000 1000w,
-                    https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600 1600w"
+          <img decoding="async" src="/assets/img/saas-1000.jpg"
+            srcset="/assets/img/saas-600.jpg 600w,
+                    /assets/img/saas-1000.jpg 1000w,
+                    /assets/img/saas-1600.jpg 1600w"
             sizes="(min-width:1024px) 40vw, 100vw" alt="醫療器械合規數據平台" loading="lazy" class="w-full h-56 lg:h-72 object-cover" onerror="this.parentElement.style.display='none'"/>
         </figure>
       </div>
@@ -346,10 +377,10 @@
           </div>
         </div>
         <figure class="duotone">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000"
-            srcset="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=600 600w,
-                    https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000 1000w,
-                    https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1600 1600w"
+          <img decoding="async" src="/assets/img/aicro-1000.jpg"
+            srcset="/assets/img/aicro-600.jpg 600w,
+                    /assets/img/aicro-1000.jpg 1000w,
+                    /assets/img/aicro-1600.jpg 1600w"
             sizes="(min-width:1024px) 40vw, 100vw" alt="AI醫療技術研發" loading="lazy" class="w-full h-56 lg:h-72 object-cover" onerror="this.parentElement.style.display='none'"/>
         </figure>
       </div>
@@ -435,10 +466,10 @@
           </div>
         </div>
         <figure class="duotone">
-          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1000"
-            srcset="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600 600w,
-                    https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1000 1000w,
-                    https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600 1600w"
+          <img decoding="async" src="/assets/img/deploy-1000.jpg"
+            srcset="/assets/img/deploy-600.jpg 600w,
+                    /assets/img/deploy-1000.jpg 1000w,
+                    /assets/img/deploy-1600.jpg 1600w"
             sizes="(min-width:1024px) 40vw, 100vw" alt="私有化部署數據中心" loading="lazy" class="w-full h-56 lg:h-72 object-cover" onerror="this.parentElement.style.display='none'"/>
         </figure>
       </div>
@@ -570,6 +601,7 @@
   </div>
 </section>
 
+</main>
 <!-- ======== FOOTER ======== -->
 <footer class="bg-[#0B3D55] text-white pt-12 pb-8">
   <div class="max-w-6xl mx-auto px-6">
@@ -624,6 +656,10 @@
         if (a.closest('.overflow-x-auto')) a.classList.toggle('chip-active', e.isIntersecting);
       });
     });
+    try {
+      var act = d.querySelector('nav a.nav-active');
+      if (act && location.hash !== act.getAttribute('href')) history.replaceState(null, '', act.getAttribute('href'));
+    } catch (err) { /* replaceState unavailable (e.g. file://) */ }
   }, { rootMargin: '-40% 0px -55% 0px' });
   Object.keys(byId).forEach(function (id) {
     var el = d.getElementById(id);
