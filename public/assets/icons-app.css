@@ -1,0 +1,42 @@
+/* Font Awesome 6.4.0 subset for the 853 React app (index.html).
+   solid: 21 glyphs, brands: 3 glyphs. Regenerate if icons change. */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url('/assets/fa-solid-853-app.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/assets/fa-brands-853.woff2') format('woff2');
+}
+.fa-solid { font-family: 'Font Awesome 6 Free'; font-weight: 900; font-style: normal; line-height: 1; display: inline-block; -webkit-font-smoothing: antialiased; }
+.fa-brands { font-family: 'Font Awesome 6 Brands'; font-weight: 400; font-style: normal; line-height: 1; display: inline-block; -webkit-font-smoothing: antialiased; }
+.fa-bandage:before { content: '\f462'; }
+.fa-calendar-days:before { content: '\f783'; }
+.fa-check-double:before { content: '\f560'; }
+.fa-chevron-down:before { content: '\f078'; }
+.fa-circle-dot:before { content: '\f192'; }
+.fa-database:before { content: '\f1c0'; }
+.fa-dna:before { content: '\f471'; }
+.fa-flask-vial:before { content: '\e4f3'; }
+.fa-location-dot:before { content: '\f3c5'; }
+.fa-microchip:before { content: '\f2db'; }
+.fa-newspaper:before { content: '\f1ea'; }
+.fa-pills:before { content: '\f484'; }
+.fa-square-check:before { content: '\f14a'; }
+.fa-bars:before { content: '\f0c9'; }
+.fa-xmark:before { content: '\f00d'; }
+.fa-heart-pulse:before { content: '\f21e'; }
+.fa-arrow-up:before { content: '\f062'; }
+.fa-circle-info:before { content: '\f05a'; }
+.fa-envelope:before { content: '\f0e0'; }
+.fa-phone:before { content: '\f095'; }
+.fa-globe:before { content: '\f0ac'; }
+.fa-facebook-f:before { content: '\f39e'; }
+.fa-linkedin-in:before { content: '\f0e1'; }
+.fa-weixin:before { content: '\f1d7'; }

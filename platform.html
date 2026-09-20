@@ -93,11 +93,15 @@
   }
   /* skip link */
   .skip-link { position:fixed; top:8px; left:8px; z-index:60; transform:translateY(-200%); background:rgb(255,255,255); color:var(--blue); border:1px solid var(--line); padding:.6rem 1rem; font-size:13px; font-weight:700; box-shadow:0 2px 10px rgba(3,93,168,0.15); }
+  /* print masthead */
+  .print-only { display:none; }
+  @media print { .print-only { display:block; padding:.5rem 0 1rem; border-bottom:1px solid var(--line); color:var(--ink); font-weight:700; font-size:14px; } }
   .skip-link:focus { transform:none; }
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main">跳至主要內容</a>
+<div class="print-only serif">濠概853 · AI醫療器械合規平台</div>
 
 <!-- ======== MASTHEAD ======== -->
 <nav class="fixed w-full z-50 bg-white/95 backdrop-blur border-b border-[#D8E4EC]">
@@ -613,6 +617,20 @@
         </div>
         <p class="text-[11px] text-blue-100/70 leading-relaxed">濠概853自研平台屬於獨立的商業合規管理及技術支援系統，並非澳門藥物監督管理局的官方電子服務平台。醫療器械的最終分類、註冊、備案、准照及審批結果，均以澳門藥物監督管理局的正式要求及決定為準。</p>
       </div>
+      <nav aria-label="頁面目錄" class="md:self-end">
+        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-100/70 mb-3">平台內容 · Contents</div>
+        <div class="grid grid-cols-2 gap-x-10 gap-y-2">
+          <a href="#about" class="text-[13px] text-blue-100/70 hover:text-[#6FCDD8] transition-colors">平台簡介</a>
+          <a href="#models" class="text-[13px] text-blue-100/70 hover:text-[#6FCDD8] transition-colors">合作模式</a>
+          <a href="#saas" class="text-[13px] text-blue-100/70 hover:text-[#6FCDD8] transition-colors">SaaS平台</a>
+          <a href="#services" class="text-[13px] text-blue-100/70 hover:text-[#6FCDD8] transition-colors">專業服務</a>
+          <a href="#aicro" class="text-[13px] text-blue-100/70 hover:text-[#6FCDD8] transition-colors">AI-CRO</a>
+          <a href="#joint" class="text-[13px] text-blue-100/70 hover:text-[#6FCDD8] transition-colors">聯合開發</a>
+          <a href="#deploy" class="text-[13px] text-blue-100/70 hover:text-[#6FCDD8] transition-colors">私有化部署</a>
+          <a href="#coverage" class="text-[13px] text-blue-100/70 hover:text-[#6FCDD8] transition-colors">服務覆蓋</a>
+          <a href="#validation" class="text-[13px] text-blue-100/70 hover:text-[#6FCDD8] transition-colors col-span-2">商業驗證</a>
+        </div>
+      </nav>
       <div class="flex flex-col items-start md:items-end gap-3 text-sm self-end">
         <a href="#top" class="text-blue-100/80 hover:text-[#6FCDD8]"><i class="fa-solid fa-arrow-up mr-2"></i>回到頁首</a>
         <a href="./index.html" class="px-5 py-2 bg-[#035DA8] text-white font-bold text-xs hover:bg-[#1A8FBF]">前往 853 國際生物醫藥官網</a>
@@ -653,7 +671,15 @@
     entries.forEach(function (e) {
       (byId[e.target.id] || []).forEach(function (a) {
         a.classList.toggle('nav-active', e.isIntersecting);
-        if (a.closest('.overflow-x-auto')) a.classList.toggle('chip-active', e.isIntersecting);
+        if (e.isIntersecting) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+        var rail = a.closest('.overflow-x-auto');
+        if (rail) {
+          a.classList.toggle('chip-active', e.isIntersecting);
+          if (e.isIntersecting && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            var delta = (a.offsetLeft + a.offsetWidth / 2) - (rail.offsetLeft + rail.clientWidth / 2);
+            rail.scrollTo({ left: rail.scrollLeft + delta, behavior: 'smooth' });
+          }
+        }
       });
     });
     try {
